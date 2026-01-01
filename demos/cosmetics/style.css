@@ -1009,13 +1009,29 @@ body {
     .product-actions {
         position: static;
         transform: translateY(0);
-        background: rgba(255, 255, 255, 1);
-        border-top: 1px solid var(--secondary);
+        background: transparent;
+        border-top: none;
+        padding: 0 1rem 1rem;
     }
 
     .product-action-btn {
-        padding: 0.6rem;
-        font-size: 0.85rem;
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        background: var(--primary);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+    }
+
+    .product-action-btn::before {
+        content: '🛒';
+        font-size: 1.1rem;
     }
 
     /* Brands Section */
