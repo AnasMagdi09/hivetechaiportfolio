@@ -88,10 +88,10 @@ function renderComparison() {
                                 </div>
                             </div>
                             <div class="compare-card-footer">
-                                <button class="btn btn-primary btn-full" onclick="addToCart(${product.id})">
+                                <button class="btn btn-primary" onclick="addToCart(${product.id})">
                                     أضف للسلة
                                 </button>
-                                <button class="btn btn-outline-danger btn-small" onclick="removeFromCompare(${product.id})">
+                                <button class="btn btn-outline-danger" onclick="removeFromCompare(${product.id})">
                                     إزالة
                                 </button>
                             </div>
