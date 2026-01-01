@@ -1,0 +1,82 @@
+{
+  "ar": {
+    "nav": {
+      "home": "الرئيسية",
+      "projects": "المشاريع",
+      "about": "من نحن",
+      "contact": "تواصل معنا"
+    },
+    "hero": {
+      "badge": "حلول ذكية مبتكرة",
+      "title": "معرض أعمالنا",
+      "subtitle": "نعرض قدرات Hive Tech AI من خلال مشاريع مبتكرة تغطي مختلف القطاعات. حلول ذكية مخصصة تحول أفكارك إلى واقع رقمي متميز.",
+      "cta": "استكشف المشاريع",
+      "visitWebsite": "زيارة الموقع"
+    },
+    "stats": {
+      "projects": "مشاريع متنوعة",
+      "categories": "قطاعات رئيسية",
+      "satisfaction": "رضا العملاء",
+      "support": "دعم فني"
+    },
+    "filter": {
+      "all": "جميع المشاريع",
+      "ecommerce": "التجارة الإلكترونية",
+      "service": "الأنظمة الخدمية"
+    },
+    "projects": {
+      "title": "مشاريعنا المميزة",
+      "subtitle": "حلول ذكية مخصصة لمختلف القطاعات تعكس خبرتنا في بناء أنظمة متكاملة",
+      "viewDetails": "عرض التفاصيل",
+      "badge": "أعمالنا"
+    },
+    "footer": {
+      "description": "Hive Tech AI - نقدم حلول ذكية مبتكرة تعتمد على الذكاء الاصطناعي لتحويل أفكارك إلى واقع رقمي متميز.",
+      "quickLinks": "روابط سريعة",
+      "services": "خدماتنا",
+      "contact": "تواصل معنا",
+      "social": "تابعنا",
+      "copyright": "© 2024 Hive Tech AI. جميع الحقوق محفوظة."
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "projects": "Projects",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "hero": {
+      "badge": "Innovative Smart Solutions",
+      "title": "Our Portfolio",
+      "subtitle": "Showcasing Hive Tech AI capabilities through innovative projects across various sectors. Smart customized solutions that transform your ideas into outstanding digital reality.",
+      "cta": "Explore Projects",
+      "visitWebsite": "Visit Website"
+    },
+    "stats": {
+      "projects": "Diverse Projects",
+      "categories": "Main Sectors",
+      "satisfaction": "Client Satisfaction",
+      "support": "Technical Support"
+    },
+    "filter": {
+      "all": "All Projects",
+      "ecommerce": "E-Commerce",
+      "service": "Service Systems"
+    },
+    "projects": {
+      "title": "Our Featured Projects",
+      "subtitle": "Smart customized solutions for various sectors reflecting our expertise in building integrated systems",
+      "viewDetails": "View Details",
+      "badge": "Our Work"
+    },
+    "footer": {
+      "description": "Hive Tech AI - Providing innovative smart solutions powered by artificial intelligence to transform your ideas into outstanding digital reality.",
+      "quickLinks": "Quick Links",
+      "services": "Our Services",
+      "contact": "Contact Us",
+      "social": "Follow Us",
+      "copyright": "© 2024 Hive Tech AI. All rights reserved."
+    }
+  }
+}

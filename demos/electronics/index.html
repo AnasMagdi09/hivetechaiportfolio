@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone - متجر الإلكترونيات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="tech-bg">
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="45" height="45" viewBox="0 0 100 100" fill="none">
+                        <rect x="10" y="10" width="80" height="80" rx="15" fill="url(#techGradient)" class="logo-pulse"/>
+                        <path d="M30 40 L50 25 L70 40 M50 30 L50 75" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        <circle cx="35" cy="55" r="3" fill="white"/>
+                        <circle cx="50" cy="55" r="3" fill="white"/>
+                        <circle cx="65" cy="55" r="3" fill="white"/>
+                        <defs>
+                            <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2563eb"/>
+                                <stop offset="100%" style="stop-color:#7c3aed"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">TechZone</span>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">الرئيسية</a>
+                    <a href="#products" class="nav-link">المنتجات</a>
+                    <a href="#categories" class="nav-link">الفئات</a>
+                    <a href="#deals" class="nav-link">العروض</a>
+                    <a href="#compare" class="nav-link">المقارنة</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn search-btn" aria-label="بحث">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn compare-btn" aria-label="المقارنة">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span class="compare-count">0</span>
+                    </button>
+                    <button class="icon-btn cart-btn" aria-label="سلة التسوق">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="icon-btn user-btn" aria-label="حسابي">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1920&q=80" alt="Electronics" loading="eager">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    <span>أحدث التقنيات</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">عالم التكنولوجيا</span>
+                    <span class="title-line">في متناول يدك</span>
+                </h1>
+                <p class="hero-subtitle">أحدث الأجهزة الإلكترونية بأفضل الأسعار وضمان شامل</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary">
+                        <span>تسوق الآن</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <a href="../../index.html#projects" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        <span>الرجوع</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">منتج</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">علامة تجارية</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">دعم فني</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تسوق حسب الفئة</h2>
+                <p class="section-subtitle">اختر من مجموعة واسعة من الأجهزة الإلكترونية</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="smartphones">
+                    <div class="category-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="18" y="8" width="28" height="48" rx="4" fill="url(#phoneGrad)" class="float-animation"/>
+                            <rect x="20" y="12" width="24" height="38" fill="#1e293b" opacity="0.3"/>
+                            <circle cx="32" cy="54" r="2" fill="white"/>
+                            <defs>
+                                <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2563eb"/>
+                                    <stop offset="100%" style="stop-color:#7c3aed"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>الهواتف الذكية</h3>
+                    <p>150+ منتج</p>
+                    <div class="category-arrow">→</div>
+                </div>
+                
+                <div class="category-card" data-category="laptops">
+                    <div class="category-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="8" y="15" width="48" height="32" rx="2" fill="url(#laptopGrad)" class="float-animation"/>
+                            <rect x="10" y="17" width="44" height="26" fill="#1e293b" opacity="0.3"/>
+                            <rect x="4" y="47" width="56" height="4" rx="1" fill="url(#laptopGrad)"/>
+                            <defs>
+                                <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#7c3aed"/>
+                                    <stop offset="100%" style="stop-color:#ec4899"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>اللابتوبات</h3>
+                    <p>80+ منتج</p>
+                    <div class="category-arrow">→</div>
+                </div>
+                
+                <div class="category-card" data-category="tablets">
+                    <div class="category-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="14" y="10" width="36" height="44" rx="3" fill="url(#tabletGrad)" class="float-animation"/>
+                            <rect x="16" y="13" width="32" height="35" fill="#1e293b" opacity="0.3"/>
+                            <circle cx="32" cy="51" r="1.5" fill="white"/>
+                            <defs>
+                                <linearGradient id="tabletGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ec4899"/>
+                                    <stop offset="100%" style="stop-color:#f97316"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>التابلت</h3>
+                    <p>60+ منتج</p>
+                    <div class="category-arrow">→</div>
+                </div>
+                
+                <div class="category-card" data-category="accessories">
+                    <div class="category-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="20" r="8" fill="url(#accGrad)" class="float-animation"/>
+                            <path d="M20 20 Q20 35 32 45 Q44 35 44 20" stroke="url(#accGrad)" stroke-width="4" fill="none"/>
+                            <rect x="28" y="45" width="8" height="12" rx="2" fill="url(#accGrad)"/>
+                            <defs>
+                                <linearGradient id="accGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f97316"/>
+                                    <stop offset="100%" style="stop-color:#2563eb"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>الإكسسوارات</h3>
+                    <p>200+ منتج</p>
+                    <div class="category-arrow">→</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">المنتجات المميزة</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">الكل</button>
+                    <button class="filter-tab" data-filter="new">جديد</button>
+                    <button class="filter-tab" data-filter="bestseller">الأكثر مبيعاً</button>
+                    <button class="filter-tab" data-filter="sale">عروض</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="brands">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">العلامات التجارية الرائدة</h2>
+            </div>
+            <div class="brands-slider">
+                <div class="brand-item">Apple</div>
+                <div class="brand-item">Samsung</div>
+                <div class="brand-item">Huawei</div>
+                <div class="brand-item">Xiaomi</div>
+                <div class="brand-item">Sony</div>
+                <div class="brand-item">LG</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hot Deals -->
+    <section class="hot-deals">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">عروض حصرية لفترة محدودة ⚡</h2>
+                <p class="section-subtitle">وفر حتى 50% على منتجات مختارة</p>
+            </div>
+            <div class="deals-grid" id="dealsGrid">
+                <!-- Deals will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Deal -->
+    <section class="special-deal" id="deals">
+        <div class="container">
+            <div class="deal-content">
+                <div class="deal-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    عرض محدود
+                </div>
+                <h2 class="deal-title">خصم يصل إلى 50%</h2>
+                <p class="deal-text">على مجموعة مختارة من الأجهزة الإلكترونية</p>
+                <button class="btn btn-light">
+                    <span>تسوق العروض</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">يوم</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">ساعة</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">دقيقة</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">ثانية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">اشترك في نشرتنا البريدية</h2>
+                <p class="newsletter-text">احصل على آخر العروض والمنتجات الجديدة</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="أدخل بريدك الإلكتروني" class="newsletter-input">
+                    <button type="submit" class="btn btn-primary">اشتراك</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                            <rect x="10" y="10" width="80" height="80" rx="15" fill="url(#footerGradient)"/>
+                            <path d="M30 40 L50 25 L70 40 M50 30 L50 75" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                            <circle cx="35" cy="55" r="3" fill="white"/>
+                            <circle cx="50" cy="55" r="3" fill="white"/>
+                            <circle cx="65" cy="55" r="3" fill="white"/>
+                            <defs>
+                                <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2563eb"/>
+                                    <stop offset="100%" style="stop-color:#7c3aed"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span>TechZone</span>
+                    </div>
+                    <p class="footer-text">وجهتك الأولى لأحدث الأجهزة الإلكترونية</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#categories">الفئات</a></li>
+                        <li><a href="#deals">العروض</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">خدمة العملاء</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">الشحن والتوصيل</a></li>
+                        <li><a href="#">الضمان</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 TechZone. جميع الحقوق محفوظة. | تصميم وتطوير <a href="https://hive-tech.ai" target="_blank" style="color: #2563eb; text-decoration: none;">Hive Tech AI</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>سلة التسوق</h3>
+            <button class="close-cart" id="closeCart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>سلة التسوق فارغة</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cartTotal">0 ر.س</span>
+            </div>
+            <button class="btn btn-primary btn-block">إتمام الشراء</button>
+        </div>
+    </div>
+
+    <!-- Compare Sidebar -->
+    <div class="compare-sidebar" id="compareSidebar">
+        <div class="compare-header">
+            <h3>مقارنة المنتجات</h3>
+            <button class="close-compare" id="closeCompare">×</button>
+        </div>
+        <div class="compare-items" id="compareItems">
+            <div class="empty-compare">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <p>لم تضف منتجات للمقارنة</p>
+            </div>
+        </div>
+        <div class="compare-footer">
+            <button class="btn btn-primary btn-block" id="startCompare">بدء المقارنة</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

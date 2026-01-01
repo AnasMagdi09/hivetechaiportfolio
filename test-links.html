@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الروابط</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .test-card {
+            background: white;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #6366f1;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0.5rem;
+        }
+        .test-link:hover {
+            background: #4f46e5;
+        }
+        .status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-right: 1rem;
+        }
+        .success { background: #10b981; color: white; }
+        .error { background: #ef4444; color: white; }
+    </style>
+</head>
+<body>
+    <h1>🧪 اختبار روابط المشاريع</h1>
+    
+    <div class="test-card">
+        <h2>مشروع مستحضرات التجميل</h2>
+        <p><strong>المسار:</strong> demos/cosmetics/index.html</p>
+        <a href="demos/cosmetics/index.html" class="test-link" target="_blank">فتح الديمو</a>
+        <span class="status success" id="cosmetics-status">✓ الملف موجود</span>
+    </div>
+
+    <div class="test-card">
+        <h2>الصفحة الرئيسية</h2>
+        <a href="index.html" class="test-link">العودة للرئيسية</a>
+    </div>
+
+    <div class="test-card">
+        <h2>معلومات المسارات</h2>
+        <p><strong>المسار الحالي:</strong> <code id="current-path"></code></p>
+        <p><strong>المسار الكامل:</strong> <code id="full-path"></code></p>
+    </div>
+
+    <script>
+        document.getElementById('current-path').textContent = window.location.pathname;
+        document.getElementById('full-path').textContent = window.location.href;
+
+        // Test if file exists
+        fetch('demos/cosmetics/index.html')
+            .then(response => {
+                const status = document.getElementById('cosmetics-status');
+                if (response.ok) {
+                    status.className = 'status success';
+                    status.textContent = '✓ الملف موجود ويعمل';
+                } else {
+                    status.className = 'status error';
+                    status.textContent = '✗ خطأ في الوصول للملف';
+                }
+            })
+            .catch(error => {
+                const status = document.getElementById('cosmetics-status');
+                status.className = 'status error';
+                status.textContent = '✗ الملف غير موجود';
+            });
+    </script>
+</body>
+</html>

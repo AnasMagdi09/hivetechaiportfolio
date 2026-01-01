@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hive Tech AI - تواصل معنا">
+    <title>تواصل معنا - Hive Tech AI</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .contact-info-card {
+            background: var(--bg-secondary);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+        }
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            transition: all 0.3s ease;
+        }
+        .contact-info-card:hover .contact-icon {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="floating-shapes">
+        <svg class="shape shape-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="url(#gradient1)" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.8C64.8,56.4,53.8,69,39.9,76.4C26,83.8,9.2,86,-7.5,86.2C-24.2,86.4,-48.4,84.6,-64.8,75.4C-81.2,66.2,-89.8,49.6,-93.7,32.1C-97.6,14.6,-96.8,-3.8,-90.7,-19.8C-84.6,-35.8,-73.2,-49.4,-59.3,-56.7C-45.4,-64,-28.9,-65,-13.5,-66.8C1.9,-68.6,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+            <defs>
+                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+        
+        <svg class="shape shape-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="url(#gradient2)" d="M39.5,-65.5C51.4,-58.1,61.3,-47.3,68.4,-34.8C75.5,-22.3,79.8,-8.1,79.3,6.1C78.8,20.3,73.5,34.5,64.8,46.3C56.1,58.1,44,67.5,30.4,72.8C16.8,78.1,1.7,79.3,-13.2,77.8C-28.1,76.3,-42.8,72.1,-55.3,64.2C-67.8,56.3,-78.1,44.7,-83.5,31.1C-88.9,17.5,-89.4,1.9,-85.7,-12.5C-82,-26.9,-74.1,-40.1,-63.2,-48.7C-52.3,-57.3,-38.4,-61.3,-24.8,-67.5C-11.2,-73.7,1.9,-82.1,15.5,-83.8C29.1,-85.5,27.6,-72.9,39.5,-65.5Z" transform="translate(100 100)" />
+            <defs>
+                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="Group-2.png" alt="Hive Tech AI Logo" class="logo-img">
+                    </a>
+                </div>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="index.html#projects" class="nav-link">المشاريع</a></li>
+                        <li><a href="about.html" class="nav-link">من نحن</a></li>
+                        <li><a href="contact.html" class="nav-link active">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="lang-switcher" id="langSwitcher">
+                        <span class="lang-text">EN</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <img src="image-removebg-preview.png" alt="Hive Tech AI Mascot" class="hero-mascot">
+                
+                <div class="hero-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span>تواصل معنا</span>
+                </div>
+                
+                <h1 class="hero-title">نحن هنا لمساعدتك</h1>
+                <p class="hero-subtitle">
+                    لديك فكرة مشروع؟ تحتاج استشارة تقنية؟ نحن في خدمتك دائماً
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="section" style="padding: 80px 0;">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-card reveal">
+                    <div class="contact-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 22px; margin-bottom: 10px; color: var(--text-primary);">البريد الإلكتروني</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">راسلنا في أي وقت</p>
+                    <a href="mailto:info@hive-tech.ai" style="color: var(--primary-color); font-weight: 600;">
+                        info@hive-tech.ai
+                    </a>
+                </div>
+
+                <div class="contact-info-card reveal">
+                    <div class="contact-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 22px; margin-bottom: 10px; color: var(--text-primary);">الموقع الإلكتروني</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">زر موقعنا الرسمي</p>
+                    <a href="https://hive-tech.ai" target="_blank" style="color: var(--primary-color); font-weight: 600;">
+                        www.hive-tech.ai
+                    </a>
+                </div>
+
+                <div class="contact-info-card reveal">
+                    <div class="contact-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 22px; margin-bottom: 10px; color: var(--text-primary);">ساعات العمل</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">نحن متاحون</p>
+                    <p style="color: var(--primary-color); font-weight: 600;">
+                        24/7 دعم فني
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section" style="padding: 80px 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span>أرسل رسالة</span>
+                </div>
+                <h2 class="section-title">تواصل معنا الآن</h2>
+                <p class="section-subtitle">
+                    املأ النموذج وسنتواصل معك في أقرب وقت ممكن
+                </p>
+            </div>
+
+            <form class="contact-form" id="contactForm" style="margin-top: 60px;">
+                <div class="form-group">
+                    <label for="name">الاسم الكامل *</label>
+                    <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني *</label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+966 5X XXX XXXX">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">الموضوع *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">اختر الموضوع</option>
+                        <option value="project">استفسار عن مشروع جديد</option>
+                        <option value="consultation">طلب استشارة تقنية</option>
+                        <option value="support">دعم فني</option>
+                        <option value="partnership">فرص الشراكة</option>
+                        <option value="other">أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">الرسالة *</label>
+                    <textarea id="message" name="message" required placeholder="اكتب رسالتك هنا..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    إرسال الرسالة
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; margin-right: 8px; vertical-align: middle;">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="padding: 80px 0;">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 class="section-title" style="margin-bottom: 20px;">استكشف أعمالنا</h2>
+                <p class="section-subtitle" style="margin-bottom: 40px;">
+                    تصفح معرض مشاريعنا لترى ما يمكننا تقديمه لك
+                </p>
+                <div class="hero-buttons">
+                    <a href="index.html#projects" class="btn btn-outline">
+                        <span>المشاريع</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/>
+                        </svg>
+                    </a>
+                    <a href="about.html" class="btn btn-outline">
+                        <span>من نحن</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Group-2.png" alt="Hive Tech AI Logo">
+                        <img src="image-removebg-preview.png" alt="Mascot" class="footer-mascot">
+                    </div>
+                    <p class="footer-desc">
+                        Hive Tech AI - نقدم حلول ذكية مبتكرة تعتمد على الذكاء الاصطناعي لتحويل أفكارك إلى واقع رقمي متميز.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#projects">المشاريع</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <a href="mailto:info@hive-tech.ai">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                                info@hive-tech.ai
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://hive-tech.ai" target="_blank">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                                www.hive-tech.ai
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2024 Hive Tech AI. جميع الحقوق محفوظة.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/language.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Show success message
+            alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
+            
+            // Reset form
+            this.reset();
+            
+            // In production, you would send this data to your backend
+            console.log('Form submitted:', formData);
+        });
+
+        // Enhanced Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact Info Cards Animation
+            const contactCards = document.querySelectorAll('.contact-info-card');
+            contactCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            // Form Inputs Focus Effect
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.borderColor = 'var(--primary-color)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.transform = 'scale(1)';
+                    if (!this.value) {
+                        this.style.borderColor = 'var(--border-color)';
+                    }
+                });
+            });
+
+            // Simple Fade In Animation - No Overlap
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Apply animation to reveal elements
+            document.querySelectorAll('.reveal').forEach((el, index) => {
+                el.classList.add('fade-in-element');
+                el.style.animationDelay = `${index * 0.1}s`;
+                observer.observe(el);
+            });
+
+            // Add animation CSS
+            const animationStyle = document.createElement('style');
+            animationStyle.textContent = `
+                .fade-in-element {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+                
+                .fade-in-element.animated {
+                    animation: fadeInScale 0.6s ease forwards;
+                }
+                
+                @keyframes fadeInScale {
+                    from {
+                        opacity: 0;
+                        transform: scale(0.95);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            `;
+            document.head.appendChild(animationStyle);
+
+            // Form Animation - Simple fade in from left
+            const formGroups = document.querySelectorAll('.form-group');
+            formGroups.forEach((group, index) => {
+                group.style.opacity = '0';
+                group.style.animation = `slideInLeft 0.5s ease forwards ${index * 0.1}s`;
+            });
+
+            // Add form animation CSS
+            const formStyle = document.createElement('style');
+            formStyle.textContent = `
+                @keyframes slideInLeft {
+                    from {
+                        opacity: 0;
+                        transform: translateX(-20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+            `;
+            document.head.appendChild(formStyle);
+
+            // Smooth parallax for hero only
+            let lastScroll = 0;
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                if (scrolled < 600) {
+                    requestAnimationFrame(() => {
+                        const hero = document.querySelector('.hero');
+                        if (hero) {
+                            hero.style.transform = `translateY(${scrolled * 0.2}px)`;
+                            hero.style.opacity = 1 - (scrolled / 800);
+                        }
+                    });
+                }
+                lastScroll = scrolled;
+            });
+        });
+    </script>
+</body>
+</html>

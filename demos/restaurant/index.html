@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المطاعم - Restaurant Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="food-particle" style="--delay: 0s; --x: 10%; --y: 20%;">🍕</div>
+        <div class="food-particle" style="--delay: 2s; --x: 80%; --y: 30%;">🍔</div>
+        <div class="food-particle" style="--delay: 4s; --x: 60%; --y: 70%;">🍜</div>
+        <div class="food-particle" style="--delay: 1s; --x: 30%; --y: 80%;">🍰</div>
+        <div class="food-particle" style="--delay: 3s; --x: 90%; --y: 60%;">☕</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 64 64" fill="none">
+                    <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="3"/>
+                    <path d="M20 28 L32 20 L44 28" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="26" y="28" width="12" height="16" rx="2" fill="currentColor"/>
+                    <circle cx="32" cy="36" r="3" fill="#ff6b35"/>
+                    <path d="M28 20 Q32 16 36 20" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+                <div>
+                    <h1>نظام المطاعم الذكي</h1>
+                    <span class="logo-subtitle">Smart Restaurant System</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">الرئيسية</a>
+                <a href="#orders" class="nav-link">الطلبات</a>
+                <a href="#sales" class="nav-link">المبيعات</a>
+                <a href="#features" class="nav-link">المخزون</a>
+                <a href="../../index.html" class="nav-link">العودة للبورتفوليو</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon-wrapper">
+                    <svg class="hero-icon" viewBox="0 0 200 200" fill="none">
+                        <!-- Top Bun -->
+                        <ellipse cx="100" cy="60" rx="70" ry="25" fill="url(#bunGradient)" class="top-bun"/>
+                        <ellipse cx="100" cy="60" rx="65" ry="20" fill="url(#bunTopGradient)"/>
+                        
+                        <!-- Sesame Seeds -->
+                        <circle cx="80" cy="55" r="3" fill="#f5f5dc" class="seed"/>
+                        <circle cx="95" cy="52" r="2.5" fill="#f5f5dc" class="seed"/>
+                        <circle cx="110" cy="54" r="3" fill="#f5f5dc" class="seed"/>
+                        <circle cx="120" cy="58" r="2" fill="#f5f5dc" class="seed"/>
+                        <circle cx="70" cy="60" r="2.5" fill="#f5f5dc" class="seed"/>
+                        <circle cx="130" cy="62" r="2.5" fill="#f5f5dc" class="seed"/>
+                        
+                        <!-- Lettuce -->
+                        <path d="M 35 85 Q 40 75, 50 80 Q 60 75, 70 82 Q 80 77, 90 83 Q 100 78, 110 83 Q 120 77, 130 82 Q 140 75, 150 80 Q 160 75, 165 85" 
+                              fill="#4ade80" stroke="#22c55e" stroke-width="2" class="lettuce"/>
+                        
+                        <!-- Tomato -->
+                        <ellipse cx="100" cy="100" rx="60" ry="12" fill="#ef4444" class="tomato"/>
+                        <ellipse cx="100" cy="100" rx="55" ry="10" fill="#dc2626" opacity="0.7"/>
+                        
+                        <!-- Cheese -->
+                        <path d="M 40 115 L 160 115 L 155 125 L 45 125 Z" fill="#fbbf24" class="cheese"/>
+                        <path d="M 40 115 L 160 115 L 155 125 L 45 125 Z" fill="#f59e0b" opacity="0.5"/>
+                        
+                        <!-- Patty (Meat) -->
+                        <ellipse cx="100" cy="135" rx="65" ry="15" fill="url(#pattyGradient)" class="patty"/>
+                        <ellipse cx="100" cy="135" rx="60" ry="12" fill="#78350f" opacity="0.3"/>
+                        
+                        <!-- Grill marks on patty -->
+                        <line x1="70" y1="130" x2="75" y2="140" stroke="#451a03" stroke-width="2" opacity="0.5"/>
+                        <line x1="85" y1="130" x2="90" y2="140" stroke="#451a03" stroke-width="2" opacity="0.5"/>
+                        <line x1="110" y1="130" x2="115" y2="140" stroke="#451a03" stroke-width="2" opacity="0.5"/>
+                        <line x1="125" y1="130" x2="130" y2="140" stroke="#451a03" stroke-width="2" opacity="0.5"/>
+                        
+                        <!-- Bottom Bun -->
+                        <ellipse cx="100" cy="155" rx="70" ry="20" fill="url(#bunBottomGradient)" class="bottom-bun"/>
+                        <ellipse cx="100" cy="155" rx="65" ry="15" fill="#d97706" opacity="0.3"/>
+                        
+                        <!-- Shine effect -->
+                        <ellipse cx="100" cy="50" rx="30" ry="10" fill="white" opacity="0.2" class="shine"/>
+                        
+                        <defs>
+                            <linearGradient id="bunGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="bunTopGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#fcd34d;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="bunBottomGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="pattyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#92400e;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#78350f;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="pulse-ring"></div>
+                </div>
+                <span class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    آخر تحديث: الآن
+                </span>
+                <h2 class="hero-title">مطعم الذواقة - الفرع الرئيسي</h2>
+                <p class="hero-subtitle">مساء الخير أحمد، الساعة 7:45 مساءً | الخميس 2 يناير 2025</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openBookingModal()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                        تنبيهات (5 جديدة)
+                    </button>
+                    <a href="../../index.html" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                        </svg>
+                        رجوع للبورتفوليو
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-number live-counter" data-target="12">0</span>
+                        <span class="stat-label">طلب نشط حالياً</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number live-counter" data-target="8450">0</span>
+                        <span class="stat-label">ريال (اليوم)</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">6/8</span>
+                        <span class="stat-label">طاولات مشغولة</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number live-counter" data-target="42">0</span>
+                        <span class="stat-label">طلب مكتمل</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    تحديث تلقائي كل 30 ثانية
+                </span>
+                <h2 class="section-title">الحالة المباشرة للمطعم</h2>
+                <p class="section-subtitle">آخر تحديث: منذ 15 ثانية | كل شيء يعمل بشكل طبيعي ✓</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-color="orange">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            <path d="M9 12h6m-6 4h6"/>
+                        </svg>
+                    </div>
+                    <h3>الطلبات النشطة (12 طلب)</h3>
+                    <p>🔴 3 جديدة | 🟡 7 بالمطبخ | 🟢 2 جاهزة</p>
+                    <ul class="feature-list">
+                        <li>طاولة 5: برجر دبل + بيتزا كبيرة (8 دقائق متبقية)</li>
+                        <li>طاولة 3: سلطة سيزر + عصير (🟢 جاهز - انتظار النادل)</li>
+                        <li>توصيل #142: 3 وجبات (🔴 جديد - منذ دقيقتين)</li>
+                        <li>طاولة 7: مكرونة ألفريدو (🟡 المطبخ يحضّر الآن)</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" data-color="red">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3>أداء الأصناف اليوم</h3>
+                    <p>45 صنف متاح | ⚠️ 3 نفذت | 💰 الأكثر ربحاً: البيتزا</p>
+                    <ul class="feature-list">
+                        <li>🔥 برجر لحم: 18 طلب (أكثر صنف مبيعاً)</li>
+                        <li>🍕 بيتزا مارجريتا: 15 طلب (810 ريال)</li>
+                        <li>❌ سلطة يونانية: نفذت الساعة 6:30</li>
+                        <li>⚠️ باستا ألفريدو: 4 حصص متبقية فقط</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" data-color="yellow">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                    </div>
+                    <h3>حالة المخزون الحرجة</h3>
+                    <p>🔴 تنبيه عاجل: 2 مواد على وشك النفاذ!</p>
+                    <ul class="feature-list">
+                        <li>✅ دجاج: 15.5 كجم (يكفي ليومين)</li>
+                        <li>🟡 طماطم: 8 كجم (يكفي ليوم واحد)</li>
+                        <li>🔴 جبن موتزاريلا: 2.8 كجم (اطلب فوراً!)</li>
+                        <li>🔴 خس: 3 كجم (ينفذ بعد 6 ساعات)</li>
+                        <li>✅ لحم بقري: 22 كجم (ممتاز)</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" data-color="green">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                    </div>
+                    <h3>خريطة الطاولات المباشرة</h3>
+                    <p>🔴 6 مشغولة | 🟢 2 فارغة | 🟡 1 محجوزة (8:00 م)</p>
+                    <ul class="feature-list">
+                        <li>🔴 طاولة 1: عائلة (4 أشخاص) - منذ 35 دقيقة</li>
+                        <li>🔴 طاولة 3: شخصين - طلبوا الحساب</li>
+                        <li>🔴 طاولة 5: عائلة (6 أشخاص) - يطلبون الآن</li>
+                        <li>🟢 طاولة 7-8: متاحة (نظيفة وجاهزة)</li>
+                        <li>🟡 طاولة 6: محجوزة لـ "عائلة الأحمد" 8:00 م</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" data-color="blue">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3>فريق العمل الحالي</h3>
+                    <p>✅ 5 حاضرين | 🟡 1 استراحة | 📊 أداء ممتاز اليوم</p>
+                    <ul class="feature-list">
+                        <li>👨‍🍳 أحمد (طباخ رئيسي): نشط - 23 طبق اليوم</li>
+                        <li>👩 سارة (نادلة): تخدم طاولات 1، 3، 5 حالياً</li>
+                        <li>☕ محمد (كاشير): استراحة (يعود 8:00 م)</li>
+                        <li>👨‍🍳 خالد (مساعد مطبخ): يحضّر 4 طلبات</li>
+                        <li>👩 نورة (نادلة): تخدم طاولة 2 و 4</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" data-color="purple">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3>تحليل المبيعات المباشر</h3>
+                    <p>💰 8,450 ريال | 📈 +12% عن أمس | 🎯 الهدف: 10,000</p>
+                    <ul class="feature-list">
+                        <li>🌅 الغداء (12-3): 4,200 ريال (18 طلب)</li>
+                        <li>☀️ العصر (3-6): 2,850 ريال (16 طلب)</li>
+                        <li>🌙 المساء (6-الآن): 1,400 ريال (8 طلبات)</li>
+                        <li>📊 متوسط الفاتورة: 201 ريال (+8%)</li>
+                        <li>🎯 متبقي للهدف: 1,550 ريال (ساعتين)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Orders Tracking Section -->
+    <section class="orders-tracking" id="orders">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    متابعة الطلبات المباشرة
+                </span>
+                <h2 class="section-title">جميع الطلبات النشطة (12 طلب)</h2>
+                <p class="section-subtitle">آخر تحديث: منذ 5 ثواني</p>
+            </div>
+            <div class="orders-grid">
+                <div class="order-card new">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <span class="order-number">#142</span>
+                            <span class="order-type">توصيل</span>
+                        </div>
+                        <span class="order-status new">جديد</span>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-time">
+                            <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            منذ دقيقتين
+                        </div>
+                        <div class="order-items">
+                            <div>
+                                <svg class="icon-food pizza" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                                بيتزا مارجريتا × 2
+                            </div>
+                            <div>
+                                <svg class="icon-food drink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                                    <line x1="6" y1="1" x2="6" y2="4"/>
+                                    <line x1="10" y1="1" x2="10" y2="4"/>
+                                    <line x1="14" y1="1" x2="14" y2="4"/>
+                                </svg>
+                                عصير برتقال × 2
+                            </div>
+                        </div>
+                        <div class="order-customer">
+                            <strong>العميل:</strong> محمد أحمد
+                            <br><strong>الهاتف:</strong> 0501234567
+                            <br><strong>العنوان:</strong> حي النخيل، شارع الملك
+                        </div>
+                        <div class="order-total">المبلغ: <strong>95 ريال</strong></div>
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn-action accept">قبول</button>
+                        <button class="btn-action reject">رفض</button>
+                    </div>
+                </div>
+
+                <div class="order-card preparing">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <span class="order-number">طاولة 5</span>
+                            <span class="order-type">داخلي</span>
+                        </div>
+                        <span class="order-status preparing">قيد التحضير</span>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-time">
+                            <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            منذ 8 دقائق | متبقي: 7 دقائق
+                        </div>
+                        <div class="order-items">
+                            <div>
+                                <svg class="icon-food burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 11h18M3 11a2 2 0 012-2h14a2 2 0 012 2M3 11v6a2 2 0 002 2h14a2 2 0 002-2v-6"/>
+                                    <circle cx="8" cy="14" r="1"/>
+                                    <circle cx="12" cy="14" r="1"/>
+                                    <circle cx="16" cy="14" r="1"/>
+                                </svg>
+                                برجر دبل × 2
+                            </div>
+                            <div>
+                                <svg class="icon-food fries" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 8l2-6m4 6l1-6m4 6l2-6"/>
+                                    <path d="M4 8h16l-2 12H6L4 8z"/>
+                                </svg>
+                                بطاطس كبيرة × 2
+                            </div>
+                            <div>
+                                <svg class="icon-food drink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                                    <line x1="6" y1="1" x2="6" y2="4"/>
+                                    <line x1="10" y1="1" x2="10" y2="4"/>
+                                    <line x1="14" y1="1" x2="14" y2="4"/>
+                                </svg>
+                                كولا × 2
+                            </div>
+                        </div>
+                        <div class="order-customer">
+                            <strong>النادل:</strong> سارة
+                            <br><strong>عدد الأشخاص:</strong> 4
+                        </div>
+                        <div class="order-total">المبلغ: <strong>156 ريال</strong></div>
+                    </div>
+                    <div class="order-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                        <span>60% مكتمل</span>
+                    </div>
+                </div>
+
+                <div class="order-card ready">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <span class="order-number">طاولة 3</span>
+                            <span class="order-type">داخلي</span>
+                        </div>
+                        <span class="order-status ready">جاهز</span>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-time ready-badge">
+                            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            جاهز منذ 3 دقائق
+                        </div>
+                        <div class="order-items">
+                            <div>
+                                <svg class="icon-food salad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 21h10M12 21v-8"/>
+                                    <path d="M12 13c-3.5 0-6-2.5-6-6 0-1.5.5-3 1.5-4C8.5 2 10 1 12 1s3.5 1 4.5 2c1 1 1.5 2.5 1.5 4 0 3.5-2.5 6-6 6z"/>
+                                </svg>
+                                سلطة سيزر × 1
+                            </div>
+                            <div>
+                                <svg class="icon-food drink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                                    <line x1="6" y1="1" x2="6" y2="4"/>
+                                    <line x1="10" y1="1" x2="10" y2="4"/>
+                                    <line x1="14" y1="1" x2="14" y2="4"/>
+                                </svg>
+                                عصير فراولة × 1
+                            </div>
+                        </div>
+                        <div class="order-customer">
+                            <strong>النادل:</strong> سارة
+                            <br><strong>عدد الأشخاص:</strong> 2
+                        </div>
+                        <div class="order-total">المبلغ: <strong>48 ريال</strong></div>
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn-action deliver">تم التقديم</button>
+                    </div>
+                </div>
+
+                <div class="order-card preparing">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <span class="order-number">طاولة 7</span>
+                            <span class="order-type">داخلي</span>
+                        </div>
+                        <span class="order-status preparing">قيد التحضير</span>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-time">
+                            <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            منذ 5 دقائق | متبقي: 10 دقائق
+                        </div>
+                        <div class="order-items">
+                            <div>
+                                <svg class="icon-food pasta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 11c0-3.5 2.5-6 6-6s6 2.5 6 6M15 11c0-3.5 2.5-6 6-6"/>
+                                    <path d="M3 11h18v4c0 3-2 5-5 5H8c-3 0-5-2-5-5v-4z"/>
+                                </svg>
+                                مكرونة ألفريدو × 1
+                            </div>
+                            <div>
+                                <svg class="icon-food bread" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12c0-3 2-5 5-5h8c3 0 5 2 5 5v5c0 2-1 3-3 3H6c-2 0-3-1-3-3v-5z"/>
+                                    <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                                </svg>
+                                خبز بالثوم × 1
+                            </div>
+                        </div>
+                        <div class="order-customer">
+                            <strong>النادل:</strong> نورة
+                            <br><strong>عدد الأشخاص:</strong> 1
+                        </div>
+                        <div class="order-total">المبلغ: <strong>52 ريال</strong></div>
+                    </div>
+                    <div class="order-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 35%"></div>
+                        </div>
+                        <span>35% مكتمل</span>
+                    </div>
+                </div>
+
+                <div class="order-card new">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <span class="order-number">#143</span>
+                            <span class="order-type">توصيل</span>
+                        </div>
+                        <span class="order-status new">جديد</span>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-time new-order">
+                            <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            منذ 30 ثانية
+                        </div>
+                        <div class="order-items">
+                            <div>
+                                <svg class="icon-food chicken" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2c-3 0-5 2-5 5v3c0 2 1 3 2 4l-2 8h10l-2-8c1-1 2-2 2-4V7c0-3-2-5-5-5z"/>
+                                    <circle cx="12" cy="8" r="1"/>
+                                </svg>
+                                دجاج مشوي × 1
+                            </div>
+                            <div>
+                                <svg class="icon-food rice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="4" y="10" width="16" height="10" rx="2"/>
+                                    <path d="M8 10V7a1 1 0 011-1h6a1 1 0 011 1v3"/>
+                                    <line x1="8" y1="14" x2="16" y2="14"/>
+                                    <line x1="8" y1="17" x2="16" y2="17"/>
+                                </svg>
+                                أرز × 1
+                            </div>
+                            <div>
+                                <svg class="icon-food salad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 21h10M12 21v-8"/>
+                                    <path d="M12 13c-3.5 0-6-2.5-6-6 0-1.5.5-3 1.5-4C8.5 2 10 1 12 1s3.5 1 4.5 2c1 1 1.5 2.5 1.5 4 0 3.5-2.5 6-6 6z"/>
+                                </svg>
+                                سلطة × 1
+                            </div>
+                        </div>
+                        <div class="order-customer">
+                            <strong>العميل:</strong> فاطمة علي
+                            <br><strong>الهاتف:</strong> 0559876543
+                            <br><strong>العنوان:</strong> حي الورود، عمارة 15
+                        </div>
+                        <div class="order-total">المبلغ: <strong>68 ريال</strong></div>
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn-action accept">قبول</button>
+                        <button class="btn-action reject">رفض</button>
+                    </div>
+                </div>
+
+                <div class="order-card preparing">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <span class="order-number">طاولة 1</span>
+                            <span class="order-type">داخلي</span>
+                        </div>
+                        <span class="order-status preparing">قيد التحضير</span>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-time">
+                            <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            منذ 12 دقيقة | متبقي: 3 دقائق
+                        </div>
+                        <div class="order-items">
+                            <div>
+                                <svg class="icon-food pizza" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                                بيتزا بيبروني × 1
+                            </div>
+                            <div>
+                                <svg class="icon-food pizza" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                                بيتزا خضار × 1
+                            </div>
+                            <div>
+                                <svg class="icon-food drink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                                    <line x1="6" y1="1" x2="6" y2="4"/>
+                                    <line x1="10" y1="1" x2="10" y2="4"/>
+                                    <line x1="14" y1="1" x2="14" y2="4"/>
+                                </svg>
+                                مشروبات × 4
+                            </div>
+                        </div>
+                        <div class="order-customer">
+                            <strong>النادل:</strong> سارة
+                            <br><strong>عدد الأشخاص:</strong> 4 (عائلة)
+                        </div>
+                        <div class="order-total">المبلغ: <strong>185 ريال</strong></div>
+                    </div>
+                    <div class="order-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <span>85% مكتمل</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales Chart Section -->
+    <section class="sales-chart" id="sales">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    تحليل المبيعات
+                </span>
+                <h2 class="section-title">أداء المبيعات اليوم</h2>
+            </div>
+            <div class="chart-container">
+                <div class="chart-card">
+                    <h3>المبيعات حسب الفترة</h3>
+                    <div class="bars-chart">
+                        <div class="bar-item">
+                            <div class="bar-fill" style="height: 70%">
+                                <span class="bar-value">4,200 ر.س</span>
+                            </div>
+                            <span class="bar-label">الغداء<br>12-3 م</span>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-fill" style="height: 48%">
+                                <span class="bar-value">2,850 ر.س</span>
+                            </div>
+                            <span class="bar-label">العصر<br>3-6 م</span>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-fill" style="height: 23%">
+                                <span class="bar-value">1,400 ر.س</span>
+                            </div>
+                            <span class="bar-label">المساء<br>6-الآن</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>الأصناف الأكثر مبيعاً</h3>
+                    <div class="top-items">
+                        <div class="top-item">
+                            <span class="item-rank">1</span>
+                            <span class="item-name">
+                                <svg class="icon-food burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 11h18M3 11a2 2 0 012-2h14a2 2 0 012 2M3 11v6a2 2 0 002 2h14a2 2 0 002-2v-6"/>
+                                    <circle cx="8" cy="14" r="1"/>
+                                    <circle cx="12" cy="14" r="1"/>
+                                    <circle cx="16" cy="14" r="1"/>
+                                </svg>
+                                برجر لحم
+                            </span>
+                            <span class="item-count">18 طلب</span>
+                            <span class="item-revenue">684 ر.س</span>
+                        </div>
+                        <div class="top-item">
+                            <span class="item-rank">2</span>
+                            <span class="item-name">
+                                <svg class="icon-food pizza" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                                بيتزا مارجريتا
+                            </span>
+                            <span class="item-count">15 طلب</span>
+                            <span class="item-revenue">675 ر.س</span>
+                        </div>
+                        <div class="top-item">
+                            <span class="item-rank">3</span>
+                            <span class="item-name">
+                                <svg class="icon-food pasta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 11c0-3.5 2.5-6 6-6s6 2.5 6 6M15 11c0-3.5 2.5-6 6-6"/>
+                                    <path d="M3 11h18v4c0 3-2 5-5 5H8c-3 0-5-2-5-5v-4z"/>
+                                </svg>
+                                مكرونة ألفريدو
+                            </span>
+                            <span class="item-count">12 طلب</span>
+                            <span class="item-revenue">504 ر.س</span>
+                        </div>
+                        <div class="top-item">
+                            <span class="item-rank">4</span>
+                            <span class="item-name">
+                                <svg class="icon-food salad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 21h10M12 21v-8"/>
+                                    <path d="M12 13c-3.5 0-6-2.5-6-6 0-1.5.5-3 1.5-4C8.5 2 10 1 12 1s3.5 1 4.5 2c1 1 1.5 2.5 1.5 4 0 3.5-2.5 6-6 6z"/>
+                                </svg>
+                                سلطة سيزر
+                            </span>
+                            <span class="item-count">9 طلبات</span>
+                            <span class="item-revenue">288 ر.س</span>
+                        </div>
+                        <div class="top-item">
+                            <span class="item-rank">5</span>
+                            <span class="item-name">
+                                <svg class="icon-food chicken" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2c-3 0-5 2-5 5v3c0 2 1 3 2 4l-2 8h10l-2-8c1-1 2-2 2-4V7c0-3-2-5-5-5z"/>
+                                    <circle cx="12" cy="8" r="1"/>
+                                </svg>
+                                دجاج مشوي
+                            </span>
+                            <span class="item-count">8 طلبات</span>
+                            <span class="item-revenue">400 ر.س</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-shapes">
+            <div class="cta-shape"></div>
+            <div class="cta-shape"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <h2>⏰ وقت إغلاق الكاشير: 10:00 مساءً</h2>
+                <p>متبقي ساعتان | تأكد من مراجعة كل الطلبات والمدفوعات</p>
+                <button class="btn btn-primary btn-large" onclick="alert('جاري فتح تقرير المبيعات التفصيلي...')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    تحميل تقرير اليوم (PDF)
+                </button>
+                <div class="cta-features">
+                    <span>💰 إجمالي اليوم: 8,450 ريال</span>
+                    <span>📦 42 طلب مكتمل</span>
+                    <span>⭐ تقييم العملاء: 4.8/5</span>
+                    <span>📈 +12% عن الأمس</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                    </svg>
+                </div>
+                <h2>🔔 التنبيهات العاجلة (5)</h2>
+                <p>آخر تحديث: منذ 30 ثانية</p>
+            </div>
+            <div class="booking-form">
+                <div class="alert-item urgent">
+                    <div class="alert-icon">🔴</div>
+                    <div class="alert-content">
+                        <h4>مخزون حرج</h4>
+                        <p>جبن موتزاريلا: 2.8 كجم فقط (يكفي 3 ساعات)</p>
+                        <small>منذ 5 دقائق</small>
+                    </div>
+                </div>
+                <div class="alert-item warning">
+                    <div class="alert-icon">🟡</div>
+                    <div class="alert-content">
+                        <h4>طلب جديد - توصيل #142</h4>
+                        <p>3 وجبات | العنوان: حي النخيل | الدفع: كاش</p>
+                        <small>منذ دقيقتين</small>
+                    </div>
+                </div>
+                <div class="alert-item success">
+                    <div class="alert-icon">🟢</div>
+                    <div class="alert-content">
+                        <h4>طاولة 3 طلبت الحساب</h4>
+                        <p>المبلغ: 185 ريال | النادل: سارة</p>
+                        <small>منذ 3 دقائق</small>
+                    </div>
+                </div>
+                <div class="alert-item info">
+                    <div class="alert-icon">🔵</div>
+                    <div class="alert-content">
+                        <h4>حجز جديد</h4>
+                        <p>عائلة الأحمد | 6 أشخاص | الساعة 8:00 م</p>
+                        <small>منذ 10 دقائق</small>
+                    </div>
+                </div>
+                <div class="alert-item warning">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-content">
+                        <h4>محمد يعود من الاستراحة</h4>
+                        <p>الكاشير سيكون متاحاً بعد 15 دقيقة</p>
+                        <small>منذ 12 دقيقة</small>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="closeBookingModal()">
+                    تم المراجعة - إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

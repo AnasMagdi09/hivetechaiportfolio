@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstateHub - نظام إدارة العقارات الذكي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="estate-bg">
+        <div class="building-line"></div>
+        <div class="building-line"></div>
+        <div class="building-line"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                        <rect x="20" y="30" width="60" height="50" rx="4" fill="url(#estateGradient)" class="building-pulse"/>
+                        <rect x="25" y="35" width="10" height="10" fill="white" opacity="0.8"/>
+                        <rect x="40" y="35" width="10" height="10" fill="white" opacity="0.8"/>
+                        <rect x="55" y="35" width="10" height="10" fill="white" opacity="0.8"/>
+                        <rect x="25" y="50" width="10" height="10" fill="white" opacity="0.8"/>
+                        <rect x="40" y="50" width="10" height="10" fill="white" opacity="0.8"/>
+                        <rect x="55" y="50" width="10" height="10" fill="white" opacity="0.8"/>
+                        <path d="M20 30 L50 15 L80 30" stroke="#d4af37" stroke-width="3" fill="none"/>
+                        <defs>
+                            <linearGradient id="estateGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1e3a8a"/>
+                                <stop offset="100%" style="stop-color:#3b82f6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">EstateHub</span>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">الرئيسية</a>
+                    <a href="#services" class="nav-link">الخدمات</a>
+                    <a href="#properties" class="nav-link">العقارات</a>
+                    <a href="#features" class="nav-link">المميزات</a>
+                    <a href="#contact" class="nav-link">تواصل معنا</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-outline">تسجيل الدخول</button>
+                    <button class="btn btn-primary" id="bookConsultationBtn">احجز استشارة</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80" alt="Real Estate">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                    </svg>
+                    <span>نظام موثوق ومعتمد</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">إدارة عقاراتك</span>
+                    <span class="title-line">بذكاء واحترافية</span>
+                </h1>
+                <p class="hero-subtitle">نظام متكامل لإدارة العقارات والوحدات السكنية والتجارية مع تقارير تفصيلية ومتابعة لحظية</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg">
+                        <span>ابدأ الآن</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <a href="../../index.html#projects" class="btn btn-secondary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        <span>الرجوع</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">عقار مُدار</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-number">2000+</div>
+                        <div class="stat-label">عميل راضٍ</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">وقت التشغيل</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">خدماتنا</span>
+                <h2 class="section-title">حلول متكاملة لإدارة العقارات</h2>
+                <p class="section-subtitle">نوفر لك جميع الأدوات التي تحتاجها لإدارة عقاراتك بكفاءة عالية</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="12" y="20" width="40" height="35" rx="3" fill="url(#service1)" class="float-animation"/>
+                            <rect x="16" y="25" width="8" height="8" fill="white" opacity="0.7"/>
+                            <rect x="28" y="25" width="8" height="8" fill="white" opacity="0.7"/>
+                            <rect x="40" y="25" width="8" height="8" fill="white" opacity="0.7"/>
+                            <rect x="16" y="37" width="8" height="8" fill="white" opacity="0.7"/>
+                            <rect x="28" y="37" width="8" height="8" fill="white" opacity="0.7"/>
+                            <rect x="40" y="37" width="8" height="8" fill="white" opacity="0.7"/>
+                            <path d="M12 20 L32 10 L52 20" stroke="#d4af37" stroke-width="2" fill="none"/>
+                            <defs>
+                                <linearGradient id="service1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e3a8a"/>
+                                    <stop offset="100%" style="stop-color:#3b82f6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>إدارة الوحدات</h3>
+                    <p>نظام شامل لإدارة جميع الوحدات السكنية والتجارية مع تتبع كامل للحالة والإشغال</p>
+                    <ul class="service-features">
+                        <li>تسجيل تفاصيل الوحدات</li>
+                        <li>متابعة حالة الإشغال</li>
+                        <li>إدارة العقود والإيجارات</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="20" fill="url(#service2)" class="pulse-animation"/>
+                            <path d="M32 22 L32 32 L40 36" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="service2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4af37"/>
+                                    <stop offset="100%" style="stop-color:#f59e0b"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>متابعة العملاء</h3>
+                    <p>قاعدة بيانات متكاملة للعملاء مع سجل كامل للتعاملات والمواعيد</p>
+                    <ul class="service-features">
+                        <li>ملفات العملاء الشاملة</li>
+                        <li>تذكيرات تلقائية</li>
+                        <li>سجل التواصل الكامل</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="16" y="16" width="32" height="32" rx="4" fill="url(#service3)" class="bounce-animation"/>
+                            <path d="M24 28 L32 36 L40 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="service3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6"/>
+                                    <stop offset="100%" style="stop-color:#1e3a8a"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>إدارة العقود</h3>
+                    <p>نظام ذكي لإدارة العقود والاتفاقيات مع تنبيهات للتجديد والانتهاء</p>
+                    <ul class="service-features">
+                        <li>عقود إلكترونية</li>
+                        <li>تنبيهات التجديد</li>
+                        <li>أرشفة آمنة</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="12" y="24" width="40" height="28" rx="3" fill="url(#service4)"/>
+                            <path d="M16 32 L24 40 L32 28 L40 36 L48 30" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="line-animation"/>
+                            <defs>
+                                <linearGradient id="service4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f59e0b"/>
+                                    <stop offset="100%" style="stop-color:#d4af37"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>التقارير والإحصائيات</h3>
+                    <p>تقارير تفصيلية ورسوم بيانية لمتابعة الأداء واتخاذ القرارات</p>
+                    <ul class="service-features">
+                        <li>تقارير مالية شاملة</li>
+                        <li>تحليلات متقدمة</li>
+                        <li>رسوم بيانية تفاعلية</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <path d="M32 12 L20 24 L20 52 L44 52 L44 24 Z" fill="url(#service5)" class="scale-animation"/>
+                            <rect x="26" y="30" width="6" height="8" fill="white" opacity="0.7"/>
+                            <rect x="34" y="30" width="6" height="8" fill="white" opacity="0.7"/>
+                            <rect x="28" y="42" width="8" height="10" fill="#d4af37"/>
+                            <defs>
+                                <linearGradient id="service5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e3a8a"/>
+                                    <stop offset="100%" style="stop-color:#d4af37"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>جولات افتراضية</h3>
+                    <p>عرض العقارات بتقنية 360 درجة للعملاء من أي مكان</p>
+                    <ul class="service-features">
+                        <li>جولات تفاعلية</li>
+                        <li>صور بانورامية</li>
+                        <li>فيديوهات احترافية</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="18" y="18" width="28" height="28" rx="14" fill="url(#service6)" class="pulse-animation"/>
+                            <path d="M32 26 L32 32 L36 32" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="3" fill="white"/>
+                            <defs>
+                                <linearGradient id="service6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6"/>
+                                    <stop offset="100%" style="stop-color:#f59e0b"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>الصيانة والطلبات</h3>
+                    <p>نظام متكامل لإدارة طلبات الصيانة ومتابعة تنفيذها</p>
+                    <ul class="service-features">
+                        <li>تسجيل الطلبات</li>
+                        <li>متابعة التنفيذ</li>
+                        <li>تقييم الخدمة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Showcase -->
+    <section class="properties" id="properties">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">عقاراتنا</span>
+                <h2 class="section-title">أحدث العقارات المتاحة</h2>
+                <p class="section-subtitle">تصفح مجموعة متنوعة من العقارات السكنية والتجارية</p>
+            </div>
+            <div class="properties-grid" id="propertiesGrid">
+                <!-- Properties will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">المميزات</span>
+                <h2 class="section-title">لماذا تختار EstateHub؟</h2>
+                <p class="section-subtitle">نظام متكامل بمميزات احترافية</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>أمان عالي</h3>
+                    <p>حماية متقدمة لبياناتك مع نسخ احتياطي تلقائي</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>واجهة سهلة</h3>
+                    <p>تصميم بسيط وسهل الاستخدام لجميع المستخدمين</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3>تكامل شامل</h3>
+                    <p>يتكامل مع جميع الأنظمة والخدمات الأخرى</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3>تسعير مرن</h3>
+                    <p>خطط متنوعة تناسب جميع الأحجام والميزانيات</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </div>
+                    <h3>تنبيهات ذكية</h3>
+                    <p>إشعارات فورية لجميع الأحداث المهمة</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>دعم فني 24/7</h3>
+                    <p>فريق دعم متاح على مدار الساعة لمساعدتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-icon">
+                    <svg viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="45" fill="url(#ctaGradient)" class="pulse-animation"/>
+                        <path d="M35 45 L50 30 L65 45 L65 70 L35 70 Z" fill="white" opacity="0.9"/>
+                        <rect x="42" y="55" width="16" height="15" fill="#1e3a8a"/>
+                        <defs>
+                            <linearGradient id="ctaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d4af37"/>
+                                <stop offset="100%" style="stop-color:#f59e0b"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h2>جاهز لتحويل إدارة عقاراتك؟</h2>
+                <p>ابدأ الآن مع نظام EstateHub واستمتع بإدارة احترافية لعقاراتك</p>
+                <div class="cta-actions">
+                    <button class="btn btn-light btn-lg">
+                        <span>ابدأ تجربة مجانية</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-outline-light btn-lg">تواصل معنا</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>تواصل معنا</h2>
+                    <p>نحن هنا لمساعدتك في أي استفسار</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>العنوان</h4>
+                                <p>الرياض، المملكة العربية السعودية</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>الهاتف</h4>
+                                <p>+966 50 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>البريد الإلكتروني</h4>
+                                <p>info@estatehub.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="الاسم الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="البريد الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="رقم الهاتف" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="رسالتك" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <svg width="45" height="45" viewBox="0 0 100 100" fill="none">
+                            <rect x="20" y="30" width="60" height="50" rx="4" fill="url(#footerGradient)"/>
+                            <rect x="25" y="35" width="10" height="10" fill="white" opacity="0.8"/>
+                            <rect x="40" y="35" width="10" height="10" fill="white" opacity="0.8"/>
+                            <rect x="55" y="35" width="10" height="10" fill="white" opacity="0.8"/>
+                            <path d="M20 30 L50 15 L80 30" stroke="#d4af37" stroke-width="3" fill="none"/>
+                            <defs>
+                                <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e3a8a"/>
+                                    <stop offset="100%" style="stop-color:#3b82f6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span>EstateHub</span>
+                    </div>
+                    <p class="footer-text">نظام متكامل لإدارة العقارات بذكاء واحترافية</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#properties">العقارات</a></li>
+                        <li><a href="#features">المميزات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">الخدمات</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">إدارة الوحدات</a></li>
+                        <li><a href="#">متابعة العملاء</a></li>
+                        <li><a href="#">إدارة العقود</a></li>
+                        <li><a href="#">التقارير</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="#" class="social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#" class="social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 EstateHub. جميع الحقوق محفوظة. | تصميم وتطوير <a href="https://hive-tech.ai" target="_blank" style="color: #d4af37; text-decoration: none;">Hive Tech AI</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Consultation Modal -->
+    <div class="consultation-modal" id="consultationModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-container">
+            <button class="close-modal" id="closeModal">×</button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <svg viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="28" fill="url(#modalGradient)" class="pulse-animation"/>
+                        <path d="M32 20 L32 32 L40 32" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="modalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1e3a8a"/>
+                                <stop offset="100%" style="stop-color:#d4af37"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h2>احجز استشارة مجانية</h2>
+                <p>املأ البيانات وسنتواصل معك في أقرب وقت</p>
+            </div>
+            <form class="consultation-form" id="consultationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>الاسم الكامل *</label>
+                        <input type="text" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف *</label>
+                        <input type="tel" placeholder="05xxxxxxxx" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>البريد الإلكتروني *</label>
+                        <input type="email" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>نوع العقار</label>
+                        <select>
+                            <option value="">اختر نوع العقار</option>
+                            <option value="residential">سكني</option>
+                            <option value="commercial">تجاري</option>
+                            <option value="land">أرض</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>الخدمة المطلوبة</label>
+                    <select>
+                        <option value="">اختر الخدمة</option>
+                        <option value="management">إدارة عقارات</option>
+                        <option value="sale">بيع عقار</option>
+                        <option value="rent">تأجير عقار</option>
+                        <option value="consultation">استشارة عقارية</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>ملاحظات إضافية</label>
+                    <textarea rows="4" placeholder="أخبرنا المزيد عن احتياجاتك..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>حفظ وإرسال الطلب</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

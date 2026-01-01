@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقارنة المنتجات - TechZone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .compare-page {
+            min-height: 100vh;
+            padding: 120px 0 4rem;
+        }
+
+        .compare-header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .compare-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .compare-subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+
+        .compare-table-wrapper {
+            overflow-x: auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .compare-table th {
+            padding: 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .compare-table th:first-child {
+            border-radius: 15px 0 0 0;
+            text-align: right;
+            background: var(--dark-light);
+        }
+
+        .compare-table th:last-child {
+            border-radius: 0 15px 0 0;
+        }
+
+        .compare-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+            text-align: center;
+        }
+
+        .compare-table td:first-child {
+            text-align: right;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--dark-light);
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .product-image-compare {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 0 auto;
+            display: block;
+            border: 2px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .product-name-compare {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-top: 1rem;
+        }
+
+        .product-price-compare {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .spec-value {
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .spec-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+
+        .rating-compare {
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+
+        .compare-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .winner-badge {
+            position: absolute;
+            top: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .product-col {
+            position: relative;
+        }
+
+        .empty-compare-page {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .empty-compare-page svg {
+            margin-bottom: 2rem;
+            opacity: 0.3;
+        }
+
+        .empty-compare-page h2 {
+            font-size: 2rem;
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .empty-compare-page p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="tech-bg">
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="45" height="45" viewBox="0 0 100 100" fill="none">
+                        <rect x="10" y="10" width="80" height="80" rx="15" fill="url(#techGradient)" class="logo-pulse"/>
+                        <path d="M30 40 L50 25 L70 40 M50 30 L50 75" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        <circle cx="35" cy="55" r="3" fill="white"/>
+                        <circle cx="50" cy="55" r="3" fill="white"/>
+                        <circle cx="65" cy="55" r="3" fill="white"/>
+                        <defs>
+                            <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2563eb"/>
+                                <stop offset="100%" style="stop-color:#7c3aed"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">TechZone</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html#home" class="nav-link">الرئيسية</a>
+                    <a href="index.html#products" class="nav-link">المنتجات</a>
+                    <a href="compare.html" class="nav-link active">المقارنة</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="index.html" class="btn btn-secondary" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        <span>الرجوع</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Compare Page -->
+    <section class="compare-page">
+        <div class="container">
+            <div class="compare-header-section">
+                <h1 class="compare-title">مقارنة المنتجات</h1>
+                <p class="compare-subtitle">قارن بين المنتجات لاختيار الأنسب لك</p>
+            </div>
+
+            <div id="compareContent">
+                <!-- Content will be loaded here -->
+            </div>
+
+            <div class="compare-actions">
+                <a href="index.html#products" class="btn btn-primary">
+                    <span>تصفح المزيد من المنتجات</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <button class="btn btn-secondary" onclick="clearComparison()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    <span>مسح المقارنة</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="compare.js"></script>
+</body>
+</html>
