@@ -555,43 +555,14 @@
                         const isInView = rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
                         const isLeavingTop = rect.bottom < window.innerHeight * 0.8;
 
-                        // Scroll Down - Animate In (Fast)
-                        if (scrollingDown && isInView && !state.animated) {
+                        // Scroll Down - Animate In (cards stay fixed after animation)
+                        if (isInView && !state.animated) {
                             const index = Array.from(projectCards).indexOf(card);
-
-                            // Clear any pending reverse
-                            if (state.reverseTimeout) {
-                                clearTimeout(state.reverseTimeout);
-                                state.reverseTimeout = null;
-                            }
 
                             setTimeout(() => {
                                 applyFinalState(card);
                                 state.animated = true;
-                                state.inView = true;
                             }, index * 120);
-                        }
-
-                        // Scroll Up - IMMEDIATE & VERY SLOW Reverse Animation
-                        // Triggers on ANY scroll up, even 1px!
-                        if (scrollingUp && state.animated) {
-                            // More sensitive trigger - starts reversing earlier
-                            if (isLeavingTop || Math.abs(scrollDelta) > 1) {
-                                const index = Array.from(projectCards).indexOf(card);
-
-                                // Clear any existing timeout
-                                if (state.reverseTimeout) {
-                                    clearTimeout(state.reverseTimeout);
-                                }
-
-                                // Reverse with dramatic stagger (last card first)
-                                state.reverseTimeout = setTimeout(() => {
-                                    applyInitialState(card, state.direction);
-                                    state.animated = false;
-                                    state.inView = false;
-                                    state.reverseTimeout = null;
-                                }, (projectCards.length - index) * 150);
-                            }
                         }
                     });
 
