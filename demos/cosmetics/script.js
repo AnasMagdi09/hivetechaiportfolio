@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderProducts(filter = 'all') {
     const grid = document.getElementById('productsGrid');
     let filteredProducts = products;
-    
+
     if (filter !== 'all') {
         filteredProducts = products.filter(p => {
             if (filter === 'new') return p.badge === 'جديد';
@@ -105,17 +105,12 @@ function renderProducts(filter = 'all') {
             return true;
         });
     }
-    
+
     grid.innerHTML = filteredProducts.map(product => `
         <div class="product-card" data-id="${product.id}">
             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}" loading="lazy">
-                <div class="product-actions">
-                    <button class="product-action-btn add-to-cart" data-id="${product.id}">
-                        أضف للسلة
-                    </button>
-                </div>
             </div>
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>
@@ -127,9 +122,14 @@ function renderProducts(filter = 'all') {
                     </div>
                 </div>
             </div>
+            <div class="product-actions">
+                <button class="product-action-btn add-to-cart" data-id="${product.id}">
+                    أضف للسلة
+                </button>
+            </div>
         </div>
     `).join('');
-    
+
     // Add to cart listeners
     document.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -144,13 +144,13 @@ function renderProducts(filter = 'all') {
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     const existingItem = cart.find(item => item.id === productId);
-    
+
     if (existingItem) {
         existingItem.quantity++;
     } else {
         cart.push({ ...product, quantity: 1 });
     }
-    
+
     updateCart();
     showNotification('تم إضافة المنتج للسلة');
 }
@@ -160,19 +160,19 @@ function updateCart() {
     const cartCount = document.querySelector('.cart-count');
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCount.textContent = totalItems;
-    
+
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
-    
+
     if (cart.length === 0) {
         cartItems.innerHTML = '<div class="empty-cart"><p>سلة التسوق فارغة</p></div>';
         cartTotal.textContent = '0 ر.س';
         return;
     }
-    
+
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotal.textContent = `${total} ر.س`;
-    
+
     cartItems.innerHTML = cart.map(item => `
         <div class="cart-item" style="padding: 1rem; border-bottom: 1px solid var(--secondary); display: flex; gap: 1rem; align-items: center;">
             <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
@@ -202,28 +202,28 @@ function setupEventListeners() {
             renderProducts(filter);
         });
     });
-    
+
     // Cart toggle
     const cartBtn = document.querySelector('.cart-btn');
     const cartSidebar = document.getElementById('cartSidebar');
     const closeCart = document.getElementById('closeCart');
     const overlay = document.getElementById('overlay');
-    
+
     cartBtn.addEventListener('click', () => {
         cartSidebar.classList.add('active');
         overlay.classList.add('active');
     });
-    
+
     closeCart.addEventListener('click', () => {
         cartSidebar.classList.remove('active');
         overlay.classList.remove('active');
     });
-    
+
     overlay.addEventListener('click', () => {
         cartSidebar.classList.remove('active');
         overlay.classList.remove('active');
     });
-    
+
     // Category cards
     document.querySelectorAll('.category-card').forEach(card => {
         card.addEventListener('click', () => {
@@ -240,7 +240,7 @@ function setupEventListeners() {
             }, 500);
         });
     });
-    
+
     // Newsletter form
     const newsletterForm = document.querySelector('.newsletter-form');
     newsletterForm.addEventListener('submit', (e) => {
@@ -251,7 +251,7 @@ function setupEventListeners() {
             newsletterForm.reset();
         }
     });
-    
+
     // Smooth scroll for nav links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
@@ -271,27 +271,27 @@ function startCountdown() {
     const endDate = new Date();
     endDate.setDate(endDate.getDate() + 3);
     endDate.setHours(23, 59, 59);
-    
+
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = endDate - now;
-        
+
         if (distance < 0) {
             document.getElementById('countdown').innerHTML = '<p>انتهى العرض!</p>';
             return;
         }
-        
+
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+
         document.getElementById('days').textContent = String(days).padStart(2, '0');
         document.getElementById('hours').textContent = String(hours).padStart(2, '0');
         document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
         document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
     }
-    
+
     updateCountdown();
     setInterval(updateCountdown, 1000);
 }
@@ -313,7 +313,7 @@ function showNotification(message) {
     `;
     notification.textContent = message;
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease';
         setTimeout(() => notification.remove(), 300);
