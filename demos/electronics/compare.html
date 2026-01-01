@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مقارنة المنتجات - TechZone</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Orbitron:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         .compare-page {
@@ -184,8 +187,213 @@
             font-size: 1.1rem;
             margin-bottom: 2rem;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .compare-page {
+                padding: 130px 0 2rem;
+            }
+
+            .compare-title {
+                font-size: 1.8rem;
+            }
+
+            .compare-subtitle {
+                font-size: 1rem;
+            }
+
+            .compare-header-section {
+                margin-bottom: 1.5rem;
+            }
+
+            .compare-actions {
+                flex-direction: column;
+                gap: 0.8rem;
+                margin-top: 2rem;
+            }
+
+            .compare-actions .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .empty-compare-page {
+                padding: 3rem 1rem;
+            }
+
+            .empty-compare-page h2 {
+                font-size: 1.5rem;
+            }
+
+            .empty-compare-page p {
+                font-size: 0.95rem;
+            }
+
+            .empty-compare-page svg {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* Mobile Cards Layout */
+        .compare-cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .compare-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .compare-card.best-product {
+            border: 2px solid #fbbf24;
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.2);
+        }
+
+        .winner-badge-card {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+            z-index: 10;
+        }
+
+        .compare-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .compare-card-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid rgba(37, 99, 235, 0.3);
+        }
+
+        .compare-card-title {
+            flex: 1;
+        }
+
+        .compare-card-title h3 {
+            font-size: 1.1rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .compare-card-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .compare-card-body {
+            padding: 1rem;
+        }
+
+        .compare-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .compare-row:last-child {
+            border-bottom: none;
+        }
+
+        .compare-label {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .compare-value {
+            color: var(--light);
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .specs-value {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            justify-content: flex-end;
+        }
+
+        .spec-badge-small {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .recommendation-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .compare-card-footer {
+            display: flex;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: rgba(10, 15, 30, 0.5);
+            border-top: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-full {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .btn-small {
+            padding: 0.8rem 1rem !important;
+            font-size: 0.85rem !important;
+        }
+
+        .btn-outline-danger {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+
+        .btn-outline-danger:hover {
+            background: #ef4444;
+            color: white;
+        }
     </style>
 </head>
+
 <body>
     <!-- Animated Background -->
     <div class="tech-bg">
@@ -200,15 +408,17 @@
             <div class="header-content">
                 <div class="logo">
                     <svg width="45" height="45" viewBox="0 0 100 100" fill="none">
-                        <rect x="10" y="10" width="80" height="80" rx="15" fill="url(#techGradient)" class="logo-pulse"/>
-                        <path d="M30 40 L50 25 L70 40 M50 30 L50 75" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                        <circle cx="35" cy="55" r="3" fill="white"/>
-                        <circle cx="50" cy="55" r="3" fill="white"/>
-                        <circle cx="65" cy="55" r="3" fill="white"/>
+                        <rect x="10" y="10" width="80" height="80" rx="15" fill="url(#techGradient)"
+                            class="logo-pulse" />
+                        <path d="M30 40 L50 25 L70 40 M50 30 L50 75" stroke="white" stroke-width="5"
+                            stroke-linecap="round" />
+                        <circle cx="35" cy="55" r="3" fill="white" />
+                        <circle cx="50" cy="55" r="3" fill="white" />
+                        <circle cx="65" cy="55" r="3" fill="white" />
                         <defs>
                             <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#2563eb"/>
-                                <stop offset="100%" style="stop-color:#7c3aed"/>
+                                <stop offset="0%" style="stop-color:#2563eb" />
+                                <stop offset="100%" style="stop-color:#7c3aed" />
                             </linearGradient>
                         </defs>
                     </svg>
@@ -221,8 +431,9 @@
                 </nav>
                 <div class="header-actions">
                     <a href="index.html" class="btn btn-secondary" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
                         </svg>
                         <span>الرجوع</span>
                     </a>
@@ -247,7 +458,7 @@
                 <a href="index.html#products" class="btn btn-primary">
                     <span>تصفح المزيد من المنتجات</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                 </a>
                 <button class="btn btn-secondary" onclick="clearComparison()">
@@ -263,4 +474,5 @@
 
     <script src="compare.js"></script>
 </body>
+
 </html>
