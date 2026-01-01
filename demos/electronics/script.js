@@ -138,14 +138,6 @@ function renderProducts(filter = 'all') {
             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}" loading="lazy">
-                <div class="product-actions">
-                    <button class="product-action-btn add-to-cart" data-id="${product.id}">
-                        أضف للسلة
-                    </button>
-                    <button class="product-action-btn compare-btn add-to-compare" data-id="${product.id}">
-                        قارن
-                    </button>
-                </div>
             </div>
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>
@@ -159,6 +151,14 @@ function renderProducts(filter = 'all') {
                         ${'⭐'.repeat(product.rating)}
                     </div>
                 </div>
+            </div>
+            <div class="product-actions">
+                <button class="product-action-btn add-to-cart" data-id="${product.id}">
+                    أضف للسلة
+                </button>
+                <button class="product-action-btn compare-btn add-to-compare" data-id="${product.id}">
+                    قارن
+                </button>
             </div>
         </div>
     `).join('');

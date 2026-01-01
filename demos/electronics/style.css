@@ -645,21 +645,28 @@ body {
 }
 
 .product-actions {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     display: flex;
     gap: 0.5rem;
     padding: 1rem;
     background: rgba(10, 15, 30, 0.95);
     backdrop-filter: blur(10px);
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    border-top: 1px solid rgba(37, 99, 235, 0.1);
 }
 
-.product-card:hover .product-actions {
-    transform: translateY(0);
+/* On desktop, hide by default and show on hover */
+@media (min-width: 769px) {
+    .product-actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-actions {
+        transform: translateY(0);
+    }
 }
 
 .product-action-btn {
