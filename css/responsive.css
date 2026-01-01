@@ -292,7 +292,7 @@
   .hero {
     min-height: 100vh;
     min-height: 100dvh;
-    padding-top: 70px;
+    padding-top: 120px;
     padding-bottom: var(--spacing-lg);
   }
 
@@ -304,7 +304,7 @@
     width: 200px;
     max-width: 60vw;
     display: block;
-    margin: var(--spacing-md) auto;
+    margin: var(--spacing-lg) auto var(--spacing-md);
   }
 
   .hero-badge {
