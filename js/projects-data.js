@@ -1,9 +1,13 @@
 // Projects Data - Hive Tech AI Portfolio
+// Hierarchical structure: Main Category > Sub Category > Projects
+// Updated: 2025-01-04 - Added mainCategory and subCategory structure
+
 const projectsData = [
   {
     id: 1,
     slug: 'fashion',
-    category: 'ecommerce',
+    mainCategory: 'websites',
+    subCategory: 'ecommerce',
     titleAr: 'متجر الأزياء الإلكتروني',
     titleEn: 'Fashion E-Commerce',
     shortDescAr: 'منصة تجارة إلكترونية متكاملة لبيع الأزياء والملابس العصرية',
@@ -37,7 +41,8 @@ const projectsData = [
   {
     id: 2,
     slug: 'electronics',
-    category: 'ecommerce',
+    mainCategory: 'websites',
+    subCategory: 'ecommerce',
     titleAr: 'متجر الإلكترونيات',
     titleEn: 'Electronics E-Commerce',
     shortDescAr: 'منصة متخصصة لبيع الأجهزة الإلكترونية مع مواصفات تقنية تفصيلية',
@@ -71,7 +76,8 @@ const projectsData = [
   {
     id: 3,
     slug: 'cosmetics',
-    category: 'ecommerce',
+    mainCategory: 'websites',
+    subCategory: 'ecommerce',
     titleAr: 'متجر مستحضرات التجميل',
     titleEn: 'Cosmetics E-Commerce',
     shortDescAr: 'منصة متكاملة لبيع مستحضرات التجميل مع تقييمات العملاء',
@@ -110,7 +116,8 @@ projectsData.push(
   {
     id: 4,
     slug: 'real-estate',
-    category: 'service',
+    mainCategory: 'websites',
+    subCategory: 'service',
     titleAr: 'نظام إدارة العقارات',
     titleEn: 'Real Estate Management System',
     shortDescAr: 'نظام متكامل لإدارة العقارات والوحدات السكنية والتجارية',
@@ -144,7 +151,8 @@ projectsData.push(
   {
     id: 5,
     slug: 'beauty-salon',
-    category: 'service',
+    mainCategory: 'websites',
+    subCategory: 'service',
     titleAr: 'صالون الملوك للحلاقة الرجالية',
     titleEn: 'Kings Barber Shop Management System',
     shortDescAr: 'نظام ذكي لإدارة صالونات الحلاقة الرجالية والمواعيد',
@@ -178,7 +186,8 @@ projectsData.push(
   {
     id: 6,
     slug: 'import-export',
-    category: 'service',
+    mainCategory: 'websites',
+    subCategory: 'service',
     titleAr: 'نظام إدارة الاستيراد والتصدير',
     titleEn: 'Import & Export Management System',
     shortDescAr: 'نظام شامل لإدارة عمليات الاستيراد والتصدير والشحنات',
@@ -212,7 +221,8 @@ projectsData.push(
   {
     id: 7,
     slug: 'restaurant',
-    category: 'service',
+    mainCategory: 'websites',
+    subCategory: 'service',
     titleAr: 'نظام إدارة المطاعم',
     titleEn: 'Restaurant Management System',
     shortDescAr: 'نظام متكامل لإدارة المطاعم والطلبات والمخزون',
