@@ -134,6 +134,43 @@ const products = [
     }
 ];
 
+// Special Offers Data
+const specialOffers = [
+    {
+        id: 101,
+        name: 'طقم بدلة رجالية فاخرة',
+        desc: 'بدلة كاملة من أجود الأقمشة الإيطالية',
+        category: 'رجالي',
+        oldPrice: 2499,
+        newPrice: 1499,
+        discount: 40,
+        image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',
+        endTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000) // 2 days
+    },
+    {
+        id: 102,
+        name: 'فستان سهرة راقي',
+        desc: 'فستان طويل بتصميم عصري وأنيق',
+        category: 'نسائي',
+        oldPrice: 1899,
+        newPrice: 949,
+        discount: 50,
+        image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80',
+        endTime: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000) // 1 day
+    },
+    {
+        id: 103,
+        name: 'حقيبة يد جلدية فاخرة',
+        desc: 'حقيبة من الجلد الطبيعي 100%',
+        category: 'إكسسوارات',
+        oldPrice: 1299,
+        newPrice: 779,
+        discount: 40,
+        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',
+        endTime: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000) // 3 days
+    }
+];
+
 let cart = [];
 let wishlist = [];
 let currentFilter = 'all';
@@ -144,11 +181,160 @@ let maxPrice = 2000;
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
+    renderOffers();
     setupEventListeners();
     startCountdown();
     initAnimations();
     loadFromStorage();
 });
+
+// Load from localStorage
+function loadFromStorage() {
+    const savedCart = localStorage.getItem('fashionCart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCart();
+    }
+    
+    const savedWishlist = localStorage.getItem('fashionWishlist');
+    if (savedWishlist) {
+        wishlist = JSON.parse(savedWishlist);
+        updateWishlist();
+    }
+}
+
+// Render Special Offers
+function renderOffers() {
+    const grid = document.getElementById('offersGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = specialOffers.map(offer => {
+        const savings = offer.oldPrice - offer.newPrice;
+        return `
+            <div class="offer-card" data-id="${offer.id}">
+                <span class="offer-discount">-${offer.discount}%</span>
+                <div class="offer-image">
+                    <img src="${offer.image}" alt="${offer.name}" loading="lazy">
+                    <div class="offer-timer" data-end="${offer.endTime.getTime()}">
+                        <div class="timer-item">
+                            <span class="timer-value days">00</span>
+                            <span class="timer-label">يوم</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-value hours">00</span>
+                            <span class="timer-label">ساعة</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-value minutes">00</span>
+                            <span class="timer-label">دقيقة</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-info">
+                    <span class="offer-category">${offer.category}</span>
+                    <h3 class="offer-name">${offer.name}</h3>
+                    <p class="offer-desc">${offer.desc}</p>
+                    <div class="offer-prices">
+                        <span class="offer-old-price">${offer.oldPrice} ر.س</span>
+                        <span class="offer-new-price">${offer.newPrice} ر.س</span>
+                        <span class="offer-savings">وفر ${savings} ر.س</span>
+                    </div>
+                    <div class="offer-actions">
+                        <button class="offer-add-btn" onclick="addOfferToCart(${offer.id})">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>أضف للسلة</span>
+                        </button>
+                        <button class="offer-wishlist-btn ${wishlist.find(w => w.id === offer.id) ? 'active' : ''}" onclick="toggleOfferWishlist(${offer.id})">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="${wishlist.find(w => w.id === offer.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    // Start timers
+    updateOfferTimers();
+    setInterval(updateOfferTimers, 1000);
+}
+
+// Update Offer Timers
+function updateOfferTimers() {
+    document.querySelectorAll('.offer-timer').forEach(timer => {
+        const endTime = parseInt(timer.dataset.end);
+        const now = new Date().getTime();
+        const distance = endTime - now;
+        
+        if (distance < 0) {
+            timer.innerHTML = '<span style="color: white; font-weight: 700;">انتهى العرض</span>';
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        
+        timer.querySelector('.days').textContent = String(days).padStart(2, '0');
+        timer.querySelector('.hours').textContent = String(hours).padStart(2, '0');
+        timer.querySelector('.minutes').textContent = String(minutes).padStart(2, '0');
+    });
+}
+
+// Add Offer to Cart
+function addOfferToCart(offerId) {
+    const offer = specialOffers.find(o => o.id === offerId);
+    if (!offer) return;
+    
+    const cartItem = {
+        id: offer.id,
+        name: offer.name,
+        price: offer.newPrice,
+        image: offer.image,
+        quantity: 1
+    };
+    
+    const existingItem = cart.find(item => item.id === offerId);
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push(cartItem);
+    }
+    
+    localStorage.setItem('fashionCart', JSON.stringify(cart));
+    updateCart();
+    showNotification('تم إضافة العرض للسلة ✓', 'success');
+}
+
+// Toggle Offer Wishlist
+function toggleOfferWishlist(offerId) {
+    const offer = specialOffers.find(o => o.id === offerId);
+    if (!offer) return;
+    
+    const existingIndex = wishlist.findIndex(item => item.id === offerId);
+    
+    if (existingIndex > -1) {
+        wishlist.splice(existingIndex, 1);
+        showNotification('تم إزالة العرض من المفضلة', 'info');
+    } else {
+        wishlist.push({
+            id: offer.id,
+            name: offer.name,
+            price: offer.newPrice,
+            image: offer.image
+        });
+        showNotification('تم إضافة العرض للمفضلة ♥', 'success');
+    }
+    
+    localStorage.setItem('fashionWishlist', JSON.stringify(wishlist));
+    updateWishlist();
+    renderOffers();
+}
 
 // Load from localStorage
 function loadFromStorage() {
@@ -333,14 +519,15 @@ function updateCart() {
             <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 15px;">
             <div style="flex: 1;">
                 <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--dark);">${item.name}</h4>
+                ${item.selectedColor && item.selectedSize ? `<p style="color: var(--gray); font-size: 0.85rem; margin-bottom: 0.3rem;">اللون: ${item.selectedColor} | المقاس: ${item.selectedSize}</p>` : ''}
                 <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 0.5rem;">${item.price} ر.س × ${item.quantity}</p>
                 <div style="display: flex; gap: 0.5rem; align-items: center;">
-                    <button onclick="decreaseQuantity(${item.id})" style="width: 30px; height: 30px; border: 2px solid var(--primary); background: transparent; color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 700;">-</button>
+                    <button onclick="decreaseQuantity(${item.id}, '${item.selectedColor}', '${item.selectedSize}')" style="width: 30px; height: 30px; border: 2px solid var(--primary); background: transparent; color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 700;">-</button>
                     <span style="font-weight: 700; min-width: 30px; text-align: center;">${item.quantity}</span>
-                    <button onclick="increaseQuantity(${item.id})" style="width: 30px; height: 30px; border: none; background: var(--gradient); color: white; border-radius: 8px; cursor: pointer; font-weight: 700;">+</button>
+                    <button onclick="increaseQuantity(${item.id}, '${item.selectedColor}', '${item.selectedSize}')" style="width: 30px; height: 30px; border: none; background: var(--gradient); color: white; border-radius: 8px; cursor: pointer; font-weight: 700;">+</button>
                 </div>
             </div>
-            <button onclick="removeFromCart(${item.id})" style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444; cursor: pointer; font-size: 1.2rem; padding: 0.5rem; border-radius: 8px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">×</button>
+            <button onclick="removeFromCart(${item.id}, '${item.selectedColor}', '${item.selectedSize}')" style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444; cursor: pointer; font-size: 1.2rem; padding: 0.5rem; border-radius: 8px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">×</button>
         </div>
     `).join('');
 }
@@ -378,8 +565,8 @@ function updateWishlist() {
 }
 
 // Cart quantity functions
-function increaseQuantity(productId) {
-    const item = cart.find(i => i.id === productId);
+function increaseQuantity(productId, color, size) {
+    const item = cart.find(i => i.id === productId && i.selectedColor === color && i.selectedSize === size);
     if (item) {
         item.quantity++;
         localStorage.setItem('fashionCart', JSON.stringify(cart));
@@ -387,8 +574,8 @@ function increaseQuantity(productId) {
     }
 }
 
-function decreaseQuantity(productId) {
-    const item = cart.find(i => i.id === productId);
+function decreaseQuantity(productId, color, size) {
+    const item = cart.find(i => i.id === productId && i.selectedColor === color && i.selectedSize === size);
     if (item && item.quantity > 1) {
         item.quantity--;
         localStorage.setItem('fashionCart', JSON.stringify(cart));
@@ -396,8 +583,8 @@ function decreaseQuantity(productId) {
     }
 }
 
-function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
+function removeFromCart(productId, color, size) {
+    cart = cart.filter(item => !(item.id === productId && item.selectedColor === color && item.selectedSize === size));
     localStorage.setItem('fashionCart', JSON.stringify(cart));
     updateCart();
     showNotification('تم إزالة المنتج من السلة', 'info');
@@ -409,6 +596,10 @@ function showQuickView(productId) {
     const modal = document.getElementById('quickViewModal');
     const modalBody = document.getElementById('modalBody');
     
+    // Initialize selected options
+    let selectedColor = product.colors[0];
+    let selectedSize = product.sizes[0];
+    
     modalBody.innerHTML = `
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
             <div>
@@ -416,30 +607,30 @@ function showQuickView(productId) {
             </div>
             <div>
                 ${product.badge ? `<span style="display: inline-block; background: var(--gradient); color: white; padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">${product.badge}</span>` : ''}
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem;">${product.name}</h2>
+                <h2 style="font-family: 'Cairo', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem;">${product.name}</h2>
                 <p style="color: var(--gray); font-size: 1.1rem; margin-bottom: 1.5rem;">${product.desc}</p>
                 <div style="font-size: 2.5rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 2rem;">${product.price} ر.س</div>
                 
                 <div style="margin-bottom: 2rem;">
                     <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">الألوان المتاحة:</h4>
-                    <div style="display: flex; gap: 1rem;">
+                    <div style="display: flex; gap: 1rem;" id="colorOptions">
                         ${product.colorCodes.map((color, i) => `
-                            <button style="width: 40px; height: 40px; border: 3px solid transparent; border-radius: 50%; background: ${color}; cursor: pointer; ${color === '#fff' ? 'border: 1px solid #ddd;' : ''}" title="${product.colors[i]}"></button>
+                            <button class="color-option ${i === 0 ? 'selected' : ''}" data-color="${product.colors[i]}" style="width: 45px; height: 45px; border: 3px solid ${i === 0 ? 'var(--primary)' : 'transparent'}; border-radius: 50%; background: ${color}; cursor: pointer; transition: all 0.3s ease; ${color === '#fff' ? 'box-shadow: inset 0 0 0 1px #ddd;' : ''}" title="${product.colors[i]}"></button>
                         `).join('')}
                     </div>
                 </div>
                 
                 <div style="margin-bottom: 2rem;">
                     <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">المقاسات المتاحة:</h4>
-                    <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
-                        ${product.sizes.map(size => `
-                            <button style="padding: 0.8rem 1.5rem; border: 2px solid var(--primary); background: transparent; color: var(--primary); border-radius: 12px; font-weight: 700; cursor: pointer;">${size}</button>
+                    <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;" id="sizeOptions">
+                        ${product.sizes.map((size, i) => `
+                            <button class="size-option ${i === 0 ? 'selected' : ''}" data-size="${size}" style="padding: 0.8rem 1.5rem; border: 2px solid ${i === 0 ? 'transparent' : 'var(--primary)'}; background: ${i === 0 ? 'var(--gradient)' : 'transparent'}; color: ${i === 0 ? 'white' : 'var(--primary)'}; border-radius: 12px; font-weight: 700; cursor: pointer; font-family: 'Cairo', sans-serif; transition: all 0.3s ease;">${size}</button>
                         `).join('')}
                     </div>
                 </div>
                 
                 <div style="display: flex; gap: 1rem;">
-                    <button onclick="addToCart(${product.id}); closeQuickView();" style="flex: 1; padding: 1.2rem; background: var(--gradient); color: white; border: none; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 700; cursor: pointer;">
+                    <button onclick="addToCartWithOptions(${product.id})" style="flex: 1; padding: 1.2rem; background: var(--gradient); color: white; border: none; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 700; cursor: pointer;">
                         أضف للسلة
                     </button>
                     <button onclick="toggleWishlist(${product.id}); closeQuickView();" style="width: 60px; height: 60px; background: ${wishlist.find(w => w.id === product.id) ? 'var(--gradient)' : 'var(--gradient-soft)'}; color: ${wishlist.find(w => w.id === product.id) ? 'white' : 'var(--primary)'}; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
@@ -453,6 +644,81 @@ function showQuickView(productId) {
     `;
     
     modal.classList.add('active');
+    
+    // Add event listeners for color selection
+    document.querySelectorAll('.color-option').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.color-option').forEach(b => {
+                b.style.borderColor = 'transparent';
+                b.classList.remove('selected');
+            });
+            this.style.borderColor = 'var(--primary)';
+            this.classList.add('selected');
+            selectedColor = this.dataset.color;
+        });
+    });
+    
+    // Add event listeners for size selection
+    document.querySelectorAll('.size-option').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.size-option').forEach(b => {
+                b.style.background = 'transparent';
+                b.style.color = 'var(--primary)';
+                b.style.borderColor = 'var(--primary)';
+                b.classList.remove('selected');
+            });
+            this.style.background = 'var(--gradient)';
+            this.style.color = 'white';
+            this.style.borderColor = 'transparent';
+            this.classList.add('selected');
+            selectedSize = this.dataset.size;
+        });
+    });
+    
+    // Store selected options globally for addToCartWithOptions
+    window.currentProductOptions = {
+        productId: product.id,
+        color: selectedColor,
+        size: selectedSize
+    };
+}
+
+// Add to Cart with Options
+function addToCartWithOptions(productId) {
+    const product = products.find(p => p.id === productId);
+    const options = window.currentProductOptions || {};
+    
+    // Update options if they were changed
+    const selectedColorBtn = document.querySelector('.color-option.selected');
+    const selectedSizeBtn = document.querySelector('.size-option.selected');
+    
+    if (selectedColorBtn) options.color = selectedColorBtn.dataset.color;
+    if (selectedSizeBtn) options.size = selectedSizeBtn.dataset.size;
+    
+    const cartItem = {
+        ...product,
+        selectedColor: options.color,
+        selectedSize: options.size,
+        quantity: 1
+    };
+    
+    // Check if same product with same options exists
+    const existingItem = cart.find(item => 
+        item.id === productId && 
+        item.selectedColor === options.color && 
+        item.selectedSize === options.size
+    );
+    
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push(cartItem);
+    }
+    
+    localStorage.setItem('fashionCart', JSON.stringify(cart));
+    updateCart();
+    closeQuickView();
+    showNotification(`تم إضافة ${product.name} (${options.color} - ${options.size}) للسلة ✓`, 'success');
 }
 
 function closeQuickView() {
@@ -559,13 +825,6 @@ function setupEventListeners() {
         cartSidebar.classList.remove('active');
         wishlistSidebar.classList.remove('active');
         overlay.classList.remove('active');
-    });
-    
-    // Collection cards
-    document.querySelectorAll('.collection-card').forEach(card => {
-        card.addEventListener('click', () => {
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-        });
     });
     
     // Newsletter form
@@ -688,7 +947,7 @@ function initAnimations() {
     }, observerOptions);
     
     // Observe elements
-    document.querySelectorAll('.collection-card, .product-card, .trend-card').forEach(el => {
+    document.querySelectorAll('.collection-card, .product-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s ease';
@@ -736,3 +995,64 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Hero Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const indicators = document.querySelectorAll('.indicator');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    // Remove active class from all slides
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Add active class to current slide
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+}
+
+// Auto slide every 3 seconds
+let autoSlideInterval = setInterval(nextSlide, 3000);
+
+// Next/Prev buttons
+document.querySelector('.slider-control.next').addEventListener('click', () => {
+    clearInterval(autoSlideInterval);
+    nextSlide();
+    autoSlideInterval = setInterval(nextSlide, 3000);
+});
+
+document.querySelector('.slider-control.prev').addEventListener('click', () => {
+    clearInterval(autoSlideInterval);
+    prevSlide();
+    autoSlideInterval = setInterval(nextSlide, 3000);
+});
+
+// Indicators
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        clearInterval(autoSlideInterval);
+        currentSlide = index;
+        showSlide(currentSlide);
+        autoSlideInterval = setInterval(nextSlide, 3000);
+    });
+});
+
+// Pause on hover
+document.querySelector('.hero').addEventListener('mouseenter', () => {
+    clearInterval(autoSlideInterval);
+});
+
+document.querySelector('.hero').addEventListener('mouseleave', () => {
+    autoSlideInterval = setInterval(nextSlide, 3000);
+});

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اللابتوبات - TechZone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="category.css">
+</head>
+<body>
+    <div class="tech-bg">
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="45" height="45" viewBox="0 0 100 100" fill="none">
+                        <rect x="10" y="10" width="80" height="80" rx="15" fill="url(#techGradient)" class="logo-pulse"/>
+                        <path d="M30 40 L50 25 L70 40 M50 30 L50 75" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        <circle cx="35" cy="55" r="3" fill="white"/>
+                        <circle cx="50" cy="55" r="3" fill="white"/>
+                        <circle cx="65" cy="55" r="3" fill="white"/>
+                        <defs>
+                            <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2563eb"/>
+                                <stop offset="100%" style="stop-color:#7c3aed"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">TechZone</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="index.html#products" class="nav-link">المنتجات</a>
+                    <a href="index.html#categories" class="nav-link active">الفئات</a>
+                    <a href="index.html#deals" class="nav-link">العروض</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn wishlist-header-btn" aria-label="المفضلة">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span class="wishlist-count">0</span>
+                    </button>
+                    <button class="icon-btn compare-header-btn" aria-label="المقارنة">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span class="compare-count">0</span>
+                    </button>
+                    <button class="icon-btn cart-btn" aria-label="سلة التسوق">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="category-hero laptops-hero">
+        <div class="category-hero-bg">
+            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1920&q=80" alt="Laptops">
+            <div class="category-hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="category-hero-content">
+                <a href="index.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    العودة للرئيسية
+                </a>
+                <div class="category-icon-large">
+                    <svg viewBox="0 0 64 64" fill="none">
+                        <rect x="8" y="15" width="48" height="32" rx="2" fill="url(#laptopGrad)"/>
+                        <rect x="10" y="17" width="44" height="26" fill="#1e293b" opacity="0.3"/>
+                        <rect x="4" y="47" width="56" height="4" rx="1" fill="url(#laptopGrad)"/>
+                        <defs>
+                            <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#7c3aed"/>
+                                <stop offset="100%" style="stop-color:#ec4899"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1 class="category-title">اللابتوبات</h1>
+                <p class="category-desc">أقوى أجهزة اللابتوب للعمل والألعاب والتصميم</p>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label>العلامة التجارية:</label>
+                    <select class="filter-select" id="brandFilter">
+                        <option value="all">الكل</option>
+                        <option value="apple">Apple</option>
+                        <option value="dell">Dell</option>
+                        <option value="hp">HP</option>
+                        <option value="lenovo">Lenovo</option>
+                        <option value="asus">ASUS</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>السعر:</label>
+                    <select class="filter-select" id="priceFilter">
+                        <option value="all">الكل</option>
+                        <option value="0-2000">أقل من 2000 ر.س</option>
+                        <option value="2000-4000">2000 - 4000 ر.س</option>
+                        <option value="4000-8000">4000 - 8000 ر.س</option>
+                        <option value="8000+">أكثر من 8000 ر.س</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>الترتيب:</label>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="featured">المميزة</option>
+                        <option value="price-low">السعر: من الأقل</option>
+                        <option value="price-high">السعر: من الأعلى</option>
+                        <option value="newest">الأحدث</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-products">
+        <div class="container">
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 TechZone. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="category.js"></script>
+    <script>
+        initCategory('laptops', laptopsProducts);
+    </script>
+</body>
+</html>

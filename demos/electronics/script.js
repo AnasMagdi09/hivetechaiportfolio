@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startCountdown();
     initAnimations();
     loadFromStorage();
+    updateWishlistCount();
 });
 
 // Load from localStorage
@@ -139,32 +140,46 @@ function renderProducts(filter = 'all') {
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}" loading="lazy">
             </div>
+            <div class="product-actions-bar">
+                <button class="action-btn compare-btn-new" data-id="${product.id}" title="قارن">
+                    قارن
+                </button>
+                <button class="action-btn cart-btn-main" data-id="${product.id}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    أضف للسلة
+                </button>
+                <button class="action-btn wishlist-btn" data-id="${product.id}" title="أضف للمفضلة">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+            </div>
             <div class="product-info">
+                <span class="product-brand">${product.category === 'smartphones' ? 'SMARTPHONE' : product.category === 'laptops' ? 'LAPTOP' : product.category === 'tablets' ? 'TABLET' : 'ACCESSORY'}</span>
                 <h3 class="product-name">${product.name}</h3>
-                <p class="product-desc">${product.desc}</p>
                 <div class="product-specs">
                     ${product.specs.map(spec => `<span class="spec-tag">${spec}</span>`).join('')}
                 </div>
                 <div class="product-footer">
-                    <span class="product-price">${product.price} ر.س</span>
+                    <div class="price-wrapper">
+                        <span class="old-price">${Math.round(product.price * 1.2)} ر.س</span>
+                        <span class="current-price">${product.price} ر.س</span>
+                    </div>
                     <div class="product-rating">
-                        ${'⭐'.repeat(product.rating)}
+                        <span class="stars">${'★'.repeat(product.rating)}${'☆'.repeat(5-product.rating)}</span>
+                        <span class="rating-count">(${Math.floor(Math.random() * 200) + 50})</span>
                     </div>
                 </div>
-            </div>
-            <div class="product-actions">
-                <button class="product-action-btn add-to-cart" data-id="${product.id}">
-                    أضف للسلة
-                </button>
-                <button class="product-action-btn compare-btn add-to-compare" data-id="${product.id}">
-                    قارن
-                </button>
             </div>
         </div>
     `).join('');
     
     // Add event listeners
-    document.querySelectorAll('.add-to-cart').forEach(btn => {
+    document.querySelectorAll('.cart-btn-main').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             const id = parseInt(btn.dataset.id);
@@ -172,11 +187,19 @@ function renderProducts(filter = 'all') {
         });
     });
     
-    document.querySelectorAll('.add-to-compare').forEach(btn => {
+    document.querySelectorAll('.compare-btn-new').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             const id = parseInt(btn.dataset.id);
             addToCompare(id);
+        });
+    });
+    
+    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = parseInt(btn.dataset.id);
+            addToWishlist(id);
         });
     });
 }
@@ -240,6 +263,33 @@ function addToCompare(productId) {
     localStorage.setItem('compareList', JSON.stringify(compareList));
     updateCompare();
     showNotification('تم إضافة المنتج للمقارنة', 'success');
+}
+
+// Add to Wishlist
+function addToWishlist(productId) {
+    let wishlist = JSON.parse(localStorage.getItem('techzone_wishlist')) || [];
+    const product = products.find(p => p.id === productId);
+    
+    if (product) {
+        const exists = wishlist.find(item => item.id === productId);
+        if (!exists) {
+            wishlist.push(product);
+            localStorage.setItem('techzone_wishlist', JSON.stringify(wishlist));
+            updateWishlistCount();
+            showNotification('تمت الإضافة للمفضلة!', 'success');
+        } else {
+            showNotification('المنتج موجود بالفعل في المفضلة', 'info');
+        }
+    }
+}
+
+// Update Wishlist Count
+function updateWishlistCount() {
+    const wishlistCount = document.querySelector('.wishlist-count');
+    if (wishlistCount) {
+        const wishlist = JSON.parse(localStorage.getItem('techzone_wishlist')) || [];
+        wishlistCount.textContent = wishlist.length;
+    }
 }
 
 // Update Cart

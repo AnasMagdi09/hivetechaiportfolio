@@ -56,9 +56,20 @@ class SnakeTrackAnimation {
   buildTrackPath() {
     this.trackPoints = [];
     
+    // Adjust position based on screen width
+    const screenWidth = this.canvas.width;
+    let rightOffset = 40;
+    let trackWidth = 80;
+    
+    // On medium screens (1024-1366px), move track further right
+    if (screenWidth >= 1024 && screenWidth <= 1440) {
+      rightOffset = 20;
+      trackWidth = 60;
+    }
+    
     // Move track more to the right (away from content)
-    const rightX = this.canvas.width - 40;
-    const leftX = this.canvas.width - 120;
+    const rightX = this.canvas.width - rightOffset;
+    const leftX = this.canvas.width - (rightOffset + trackWidth);
     const startY = 100;
     
     // Calculate end based on document height, not viewport

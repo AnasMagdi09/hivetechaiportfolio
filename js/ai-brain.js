@@ -33,15 +33,26 @@ class AIBrain {
     }
 
     createContainer() {
+        // Adjust position based on screen width
+        const screenWidth = window.innerWidth;
+        let leftPosition = '60px';
+        let containerSize = '300px';
+        
+        // On medium screens, move closer to edge and make smaller
+        if (screenWidth >= 1024 && screenWidth <= 1440) {
+            leftPosition = '30px';
+            containerSize = '250px';
+        }
+        
         this.container = document.createElement('div');
         this.container.id = 'ai-brain-container';
         this.container.style.cssText = `
             position: fixed;
-            left: 60px;
+            left: ${leftPosition};
             top: 50%;
             transform: translateY(-50%);
-            width: 300px;
-            height: 300px;
+            width: ${containerSize};
+            height: ${containerSize};
             z-index: 50;
             pointer-events: none;
             opacity: 0;

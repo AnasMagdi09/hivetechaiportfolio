@@ -4,6 +4,7 @@
       "home": "الرئيسية",
       "projects": "المشاريع",
       "about": "من نحن",
+      "services": "خدماتنا",
       "contact": "تواصل معنا"
     },
     "hero": {
@@ -30,13 +31,193 @@
       "viewDetails": "عرض التفاصيل",
       "badge": "أعمالنا"
     },
+    "about": {
+      "badge": "من نحن",
+      "title": "Hive Tech AI",
+      "subtitle": "نحن فريق من المبدعين والمطورين المتخصصين في بناء حلول ذكية مبتكرة تعتمد على الذكاء الاصطناعي",
+      "visionBadge": "رؤيتنا",
+      "visionTitle": "نبني المستقبل الرقمي",
+      "visionSubtitle": "في Hive Tech AI، نؤمن بقوة التكنولوجيا في تحويل الأفكار إلى واقع ملموس. نسعى لتقديم حلول مبتكرة تساعد الشركات على النمو والتطور في العصر الرقمي.",
+      "ourVision": "رؤيتنا",
+      "ourVisionDesc": "أن نكون الشريك الأول للشركات في رحلتها نحو التحول الرقمي من خلال حلول ذكية ومبتكرة",
+      "ourMission": "مهمتنا",
+      "ourMissionDesc": "تطوير أنظمة ذكية متكاملة تساعد عملاءنا على تحقيق أهدافهم وتحسين كفاءة أعمالهم",
+      "ourValues": "قيمنا",
+      "ourValuesDesc": "الابتكار، الجودة، الاحترافية، والالتزام بتقديم أفضل الحلول التقنية لعملائنا",
+      "ourExperience": "خبرتنا",
+      "ourExperienceDesc": "فريق متخصص بخبرات واسعة في تطوير الحلول التقنية المتقدمة والمبتكرة",
+      "storyBadge": "قصتنا",
+      "storyTitle": "رحلتنا في عالم التكنولوجيا",
+      "story1": "بدأت Hive Tech AI من رؤية بسيطة: تمكين الشركات من تحقيق أهدافها الرقمية من خلال حلول تقنية مبتكرة ومخصصة. نؤمن بأن التكنولوجيا يجب أن تكون في خدمة الإنسان، وليس العكس.",
+      "story2": "فريقنا يتكون من مطورين ومصممين ومتخصصين في الذكاء الاصطناعي، يجمعهم شغف واحد: بناء منتجات رقمية استثنائية تحدث فرقاً حقيقياً في حياة المستخدمين وأعمال عملائنا.",
+      "story3": "نحن لا نبني مجرد مواقع أو تطبيقات، بل نبني شراكات طويلة الأمد مع عملائنا، نرافقهم في رحلة التحول الرقمي ونساعدهم على النمو والتطور في عالم يتغير باستمرار.",
+      "teamBadge": "فريقنا",
+      "teamTitle": "خبراء متخصصون في خدمتك",
+      "team1": {
+        "title": "مطورون محترفون",
+        "desc": "خبراء في أحدث تقنيات البرمجة وأطر العمل الحديثة"
+      },
+      "team2": {
+        "title": "مصممون مبدعون",
+        "desc": "متخصصون في تصميم تجارب مستخدم استثنائية وجذابة"
+      },
+      "team3": {
+        "title": "متخصصو ذكاء اصطناعي",
+        "desc": "خبراء في تطوير حلول ذكية مدعومة بالذكاء الاصطناعي"
+      },
+      "achievementsBadge": "مسيرتنا",
+      "achievementsTitle": "نبني النجاح معاً",
+      "achievementsSubtitle": "نفخر بما حققناه من إنجازات مع عملائنا وشركائنا",
+      "achievement1": {
+        "title": "مشاريع متنوعة",
+        "desc": "نفذنا مشاريع في مختلف المجالات من التجارة الإلكترونية إلى الأنظمة الإدارية"
+      },
+      "achievement2": {
+        "title": "عملاء راضون",
+        "desc": "بنينا علاقات طويلة الأمد مع عملائنا من خلال الجودة والالتزام"
+      },
+      "achievement3": {
+        "title": "دعم متواصل",
+        "desc": "نوفر دعم فني مستمر لضمان نجاح واستمرارية مشاريع عملائنا"
+      },
+      "achievement4": {
+        "title": "جودة عالية",
+        "desc": "نلتزم بأعلى معايير الجودة في كل مرحلة من مراحل التطوير"
+      },
+      "ctaTitle": "هل أنت مستعد للبدء؟",
+      "ctaSubtitle": "دعنا نساعدك في تحويل أفكارك إلى واقع رقمي متميز",
+      "exploreServices": "استكشف خدماتنا"
+    },
+    "services": {
+      "badge": "خدماتنا المتميزة",
+      "title": "حلول تقنية متكاملة مدعومة بالذكاء الاصطناعي",
+      "subtitle": "نقدم مجموعة شاملة من الخدمات التقنية المتطورة التي تساعدك على تحقيق أهدافك الرقمية بكفاءة واحترافية عالية",
+      "overviewBadge": "نظرة عامة",
+      "overviewTitle": "خدمات متكاملة لكل احتياجاتك",
+      "overviewSubtitle": "من تطوير المواقع إلى الذكاء الاصطناعي، نوفر لك كل ما تحتاجه لتحقيق النجاح الرقمي",
+      "detailsBadge": "تفاصيل الخدمات",
+      "detailsTitle": "كل ما تحتاجه في مكان واحد",
+      "mainBadge": "ما نقدمه",
+      "mainTitle": "خدمات شاملة لكل احتياجاتك التقنية",
+      "webDev": {
+        "title": "تطوير المواقع الإلكترونية",
+        "shortDesc": "مواقع احترافية متجاوبة بتصميم عصري وأداء فائق",
+        "desc": "نصمم ونطور مواقع إلكترونية احترافية متجاوبة مع جميع الأجهزة، تجمع بين التصميم الجذاب والأداء العالي والأمان المتقدم",
+        "feature1": "تصميم متجاوب (Responsive)",
+        "feature2": "سرعة تحميل فائقة",
+        "feature3": "تحسين محركات البحث (SEO)",
+        "feature4": "لوحات تحكم متقدمة",
+        "feature5": "أمان وحماية متقدمة",
+        "feature6": "دعم متعدد اللغات",
+        "feature1Desc": "يعمل بسلاسة على جميع الأجهزة والشاشات",
+        "feature2Desc": "تحميل سريع وأداء محسّن للمستخدم",
+        "feature3Desc": "ظهور أفضل في نتائج البحث",
+        "feature4Desc": "إدارة سهلة ومرنة للمحتوى",
+        "feature5Desc": "حماية قوية ضد التهديدات",
+        "feature6Desc": "دعم كامل للغات متعددة",
+        "stat1": "وقت التشغيل",
+        "stat2": "وقت التحميل",
+        "stat3": "تقييم الأداء"
+      },
+      "mobileApps": {
+        "title": "تطبيقات الموبايل",
+        "shortDesc": "تطبيقات ذكية لـ iOS و Android بتجربة مستخدم مميزة",
+        "desc": "نبني تطبيقات موبايل ذكية وسريعة لأنظمة iOS و Android، توفر تجربة مستخدم استثنائية وأداء موثوق",
+        "feature1": "تطبيقات iOS و Android",
+        "feature2": "واجهات مستخدم جذابة",
+        "feature3": "أداء عالي وسلس",
+        "feature4": "إشعارات ذكية",
+        "feature5": "تكامل مع APIs",
+        "feature6": "دعم الوضع الأوفلاين",
+        "feature1Desc": "تطوير لجميع المنصات الرئيسية",
+        "feature2Desc": "تصميم عصري وسهل الاستخدام",
+        "feature3Desc": "سرعة وكفاءة في الاستجابة",
+        "feature4Desc": "تفاعل فوري مع المستخدمين",
+        "feature5Desc": "ربط سلس مع الخدمات الخارجية",
+        "feature6Desc": "عمل التطبيق بدون إنترنت",
+        "stat1": "تقييم المستخدمين",
+        "stat2": "سلاسة الحركة",
+        "stat3": "تحميلات"
+      },
+      "ai": {
+        "title": "الذكاء الاصطناعي",
+        "shortDesc": "حلول ذكية متقدمة لأتمتة وتحسين أعمالك",
+        "desc": "نطور حلول ذكية مدعومة بالذكاء الاصطناعي لتحسين كفاءة أعمالك وأتمتة العمليات وتحليل البيانات بدقة",
+        "feature1": "معالجة اللغات الطبيعية",
+        "feature2": "تحليل البيانات الذكي",
+        "feature3": "روبوتات المحادثة (Chatbots)",
+        "feature4": "التعرف على الصور",
+        "feature5": "أنظمة التوصيات الذكية",
+        "feature6": "أتمتة العمليات"
+      },
+      "ecommerce": {
+        "title": "التجارة الإلكترونية",
+        "shortDesc": "متاجر إلكترونية متكاملة بأنظمة دفع آمنة",
+        "desc": "نبني متاجر إلكترونية متكاملة مع أنظمة دفع آمنة وإدارة مخزون ذكية لتحقيق أقصى استفادة من تجارتك الرقمية",
+        "feature1": "إدارة منتجات متقدمة",
+        "feature2": "بوابات دفع آمنة",
+        "feature3": "إدارة المخزون الذكية",
+        "feature4": "نظام الشحن والتوصيل",
+        "feature5": "تقارير مبيعات شاملة",
+        "feature6": "إدارة العملاء والولاء"
+      },
+      "adminSystems": {
+        "title": "الأنظمة الإدارية",
+        "shortDesc": "أنظمة إدارية شاملة لمختلف القطاعات",
+        "desc": "نصمم أنظمة إدارية شاملة تناسب مختلف القطاعات، تساعدك على إدارة عملياتك بكفاءة وفعالية",
+        "feature1": "إدارة الموظفين والصلاحيات",
+        "feature2": "تقارير وإحصائيات متقدمة",
+        "feature3": "إدارة المالية والفواتير",
+        "feature4": "نظام الأرشفة الإلكترونية",
+        "feature5": "إدارة المشاريع والمهام",
+        "feature6": "تكامل مع الأنظمة الخارجية"
+      },
+      "cloudSolutions": {
+        "title": "الحلول السحابية",
+        "shortDesc": "استضافة وإدارة سيرفرات آمنة وموثوقة",
+        "desc": "نوفر خدمات استضافة وإدارة سيرفرات سحابية آمنة وموثوقة مع دعم فني متواصل لضمان استمرارية أعمالك",
+        "feature1": "استضافة سحابية عالية الأداء",
+        "feature2": "نسخ احتياطي تلقائي",
+        "feature3": "حماية وأمان متقدم",
+        "feature4": "مراقبة الأداء 24/7",
+        "feature5": "قابلية التوسع السريع",
+        "feature6": "دعم فني متواصل"
+      },
+      "whyBadge": "لماذا نحن",
+      "whyTitle": "لماذا تختار Hive Tech AI؟",
+      "why1": {
+        "title": "خبرة متخصصة",
+        "desc": "فريق من المطورين والمصممين ذوي الخبرة الواسعة في أحدث التقنيات"
+      },
+      "why2": {
+        "title": "جودة عالية",
+        "desc": "نلتزم بأعلى معايير الجودة في كل مشروع نقوم به"
+      },
+      "why3": {
+        "title": "دعم مستمر",
+        "desc": "نوفر دعم فني متواصل لضمان نجاح مشروعك"
+      },
+      "why4": {
+        "title": "أسعار تنافسية",
+        "desc": "نقدم أفضل قيمة مقابل استثمارك في التحول الرقمي"
+      },
+      "ctaBadge": "ابدأ الآن",
+      "ctaTitle": "هل أنت مستعد لتحويل أفكارك إلى واقع؟",
+      "ctaSubtitle": "تواصل معنا اليوم واحصل على استشارة مجانية لمشروعك",
+      "ctaButton": "تواصل معنا الآن",
+      "ctaButton2": "شاهد أعمالنا"
+    },
     "footer": {
       "description": "Hive Tech AI - نقدم حلول ذكية مبتكرة تعتمد على الذكاء الاصطناعي لتحويل أفكارك إلى واقع رقمي متميز.",
       "quickLinks": "روابط سريعة",
       "services": "خدماتنا",
       "contact": "تواصل معنا",
       "social": "تابعنا",
-      "copyright": "© 2024 Hive Tech AI. جميع الحقوق محفوظة."
+      "copyright": "© 2024 Hive Tech AI. جميع الحقوق محفوظة.",
+      "webDev": "تطوير المواقع",
+      "mobileApps": "تطبيقات الموبايل",
+      "aiSolutions": "حلول الذكاء الاصطناعي",
+      "serverManagement": "إدارة السيرفرات"
     }
   },
   "en": {
@@ -44,6 +225,7 @@
       "home": "Home",
       "projects": "Projects",
       "about": "About",
+      "services": "Services",
       "contact": "Contact"
     },
     "hero": {
@@ -70,13 +252,193 @@
       "viewDetails": "View Details",
       "badge": "Our Work"
     },
+    "about": {
+      "badge": "About Us",
+      "title": "Hive Tech AI",
+      "subtitle": "We are a team of creators and developers specialized in building innovative smart solutions powered by artificial intelligence",
+      "visionBadge": "Our Vision",
+      "visionTitle": "Building the Digital Future",
+      "visionSubtitle": "At Hive Tech AI, we believe in the power of technology to transform ideas into tangible reality. We strive to provide innovative solutions that help companies grow and evolve in the digital age.",
+      "ourVision": "Our Vision",
+      "ourVisionDesc": "To be the first partner for companies in their digital transformation journey through smart and innovative solutions",
+      "ourMission": "Our Mission",
+      "ourMissionDesc": "Developing integrated smart systems that help our clients achieve their goals and improve their business efficiency",
+      "ourValues": "Our Values",
+      "ourValuesDesc": "Innovation, quality, professionalism, and commitment to providing the best technical solutions to our clients",
+      "ourExperience": "Our Experience",
+      "ourExperienceDesc": "Specialized team with extensive experience in developing advanced and innovative technical solutions",
+      "storyBadge": "Our Story",
+      "storyTitle": "Our Journey in Technology",
+      "story1": "Hive Tech AI started from a simple vision: empowering companies to achieve their digital goals through innovative and customized technical solutions. We believe that technology should serve humanity, not the other way around.",
+      "story2": "Our team consists of developers, designers, and AI specialists, united by one passion: building exceptional digital products that make a real difference in users' lives and our clients' businesses.",
+      "story3": "We don't just build websites or applications, we build long-term partnerships with our clients, accompanying them on their digital transformation journey and helping them grow and evolve in an ever-changing world.",
+      "teamBadge": "Our Team",
+      "teamTitle": "Specialized Experts at Your Service",
+      "team1": {
+        "title": "Professional Developers",
+        "desc": "Experts in the latest programming technologies and modern frameworks"
+      },
+      "team2": {
+        "title": "Creative Designers",
+        "desc": "Specialists in designing exceptional and attractive user experiences"
+      },
+      "team3": {
+        "title": "AI Specialists",
+        "desc": "Experts in developing smart solutions powered by artificial intelligence"
+      },
+      "achievementsBadge": "Our Journey",
+      "achievementsTitle": "Building Success Together",
+      "achievementsSubtitle": "We're proud of what we've achieved with our clients and partners",
+      "achievement1": {
+        "title": "Diverse Projects",
+        "desc": "We've executed projects in various fields from e-commerce to management systems"
+      },
+      "achievement2": {
+        "title": "Satisfied Clients",
+        "desc": "We've built long-term relationships with our clients through quality and commitment"
+      },
+      "achievement3": {
+        "title": "Continuous Support",
+        "desc": "We provide ongoing technical support to ensure the success and continuity of our clients' projects"
+      },
+      "achievement4": {
+        "title": "High Quality",
+        "desc": "We commit to the highest quality standards at every stage of development"
+      },
+      "ctaTitle": "Ready to Get Started?",
+      "ctaSubtitle": "Let us help you transform your ideas into outstanding digital reality",
+      "exploreServices": "Explore Our Services"
+    },
+    "services": {
+      "badge": "Our Distinguished Services",
+      "title": "Integrated Technical Solutions Powered by AI",
+      "subtitle": "We offer a comprehensive range of advanced technical services that help you achieve your digital goals efficiently and professionally",
+      "overviewBadge": "Overview",
+      "overviewTitle": "Integrated Services for All Your Needs",
+      "overviewSubtitle": "From web development to artificial intelligence, we provide everything you need to achieve digital success",
+      "detailsBadge": "Service Details",
+      "detailsTitle": "Everything You Need in One Place",
+      "mainBadge": "What We Offer",
+      "mainTitle": "Comprehensive Services for All Your Technical Needs",
+      "webDev": {
+        "title": "Web Development",
+        "shortDesc": "Professional responsive websites with modern design and superior performance",
+        "desc": "We design and develop professional responsive websites for all devices, combining attractive design, high performance, and advanced security",
+        "feature1": "Responsive Design",
+        "feature2": "Ultra-fast Loading",
+        "feature3": "SEO Optimization",
+        "feature4": "Advanced Dashboards",
+        "feature5": "Advanced Security & Protection",
+        "feature6": "Multi-language Support",
+        "feature1Desc": "Works smoothly on all devices and screens",
+        "feature2Desc": "Fast loading and optimized performance",
+        "feature3Desc": "Better visibility in search results",
+        "feature4Desc": "Easy and flexible content management",
+        "feature5Desc": "Strong protection against threats",
+        "feature6Desc": "Full support for multiple languages",
+        "stat1": "Uptime",
+        "stat2": "Load Time",
+        "stat3": "Performance Rating"
+      },
+      "mobileApps": {
+        "title": "Mobile Applications",
+        "shortDesc": "Smart apps for iOS & Android with exceptional user experience",
+        "desc": "We build smart and fast mobile apps for iOS and Android, providing exceptional user experience and reliable performance",
+        "feature1": "iOS & Android",
+        "feature2": "Attractive Interfaces",
+        "feature3": "High Performance",
+        "feature4": "Smart Notifications",
+        "feature5": "API Integration",
+        "feature6": "Offline Mode Support",
+        "feature1Desc": "Development for all major platforms",
+        "feature2Desc": "Modern and user-friendly design",
+        "feature3Desc": "Speed and efficiency in response",
+        "feature4Desc": "Instant interaction with users",
+        "feature5Desc": "Seamless integration with external services",
+        "feature6Desc": "App works without internet",
+        "stat1": "User Rating",
+        "stat2": "Motion Smoothness",
+        "stat3": "Downloads"
+      },
+      "ai": {
+        "title": "Artificial Intelligence",
+        "shortDesc": "Advanced smart solutions to automate and improve your business",
+        "desc": "We develop smart solutions powered by AI to improve your business efficiency, automate processes, and analyze data accurately",
+        "feature1": "Natural Language Processing",
+        "feature2": "Smart Data Analysis",
+        "feature3": "Chatbots",
+        "feature4": "Image Recognition",
+        "feature5": "Smart Recommendation Systems",
+        "feature6": "Process Automation"
+      },
+      "ecommerce": {
+        "title": "E-Commerce",
+        "shortDesc": "Integrated online stores with secure payment systems",
+        "desc": "We build integrated online stores with secure payment systems and smart inventory management to maximize your digital commerce",
+        "feature1": "Advanced Product Management",
+        "feature2": "Secure Payment Gateways",
+        "feature3": "Smart Inventory Management",
+        "feature4": "Shipping & Delivery System",
+        "feature5": "Comprehensive Sales Reports",
+        "feature6": "Customer & Loyalty Management"
+      },
+      "adminSystems": {
+        "title": "Management Systems",
+        "shortDesc": "Comprehensive management systems for various sectors",
+        "desc": "We design comprehensive management systems suitable for various sectors, helping you manage your operations efficiently and effectively",
+        "feature1": "Employee & Permission Management",
+        "feature2": "Advanced Reports & Statistics",
+        "feature3": "Financial & Invoice Management",
+        "feature4": "Electronic Archiving System",
+        "feature5": "Project & Task Management",
+        "feature6": "External System Integration"
+      },
+      "cloudSolutions": {
+        "title": "Cloud Solutions",
+        "shortDesc": "Secure and reliable server hosting and management",
+        "desc": "We provide secure and reliable cloud hosting and server management services with continuous technical support to ensure business continuity",
+        "feature1": "High-performance Cloud Hosting",
+        "feature2": "Automatic Backup",
+        "feature3": "Advanced Protection & Security",
+        "feature4": "24/7 Performance Monitoring",
+        "feature5": "Rapid Scalability",
+        "feature6": "Continuous Technical Support"
+      },
+      "whyBadge": "Why Us",
+      "whyTitle": "Why Choose Hive Tech AI?",
+      "why1": {
+        "title": "Specialized Expertise",
+        "desc": "Team of developers and designers with extensive experience in the latest technologies"
+      },
+      "why2": {
+        "title": "High Quality",
+        "desc": "We commit to the highest quality standards in every project we undertake"
+      },
+      "why3": {
+        "title": "Continuous Support",
+        "desc": "We provide continuous technical support to ensure your project's success"
+      },
+      "why4": {
+        "title": "Competitive Prices",
+        "desc": "We offer the best value for your investment in digital transformation"
+      },
+      "ctaBadge": "Start Now",
+      "ctaTitle": "Ready to Transform Your Ideas into Reality?",
+      "ctaSubtitle": "Contact us today and get a free consultation for your project",
+      "ctaButton": "Contact Us Now",
+      "ctaButton2": "View Our Work"
+    },
     "footer": {
       "description": "Hive Tech AI - Providing innovative smart solutions powered by artificial intelligence to transform your ideas into outstanding digital reality.",
       "quickLinks": "Quick Links",
       "services": "Our Services",
       "contact": "Contact Us",
       "social": "Follow Us",
-      "copyright": "© 2024 Hive Tech AI. All rights reserved."
+      "copyright": "© 2024 Hive Tech AI. All rights reserved.",
+      "webDev": "Web Development",
+      "mobileApps": "Mobile Apps",
+      "aiSolutions": "AI Solutions",
+      "serverManagement": "Server Management"
     }
   }
 }
