@@ -409,6 +409,24 @@ function setupEventListeners() {
         overlay.classList.remove('active');
     });
     
+    // Wishlist toggle
+    const wishlistBtn = document.querySelector('.wishlist-header-btn');
+    const wishlistSidebar = document.getElementById('wishlistSidebar');
+    const closeWishlist = document.getElementById('closeWishlist');
+    
+    if (wishlistBtn && wishlistSidebar && closeWishlist) {
+        wishlistBtn.addEventListener('click', () => {
+            updateWishlistDisplay();
+            wishlistSidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+        
+        closeWishlist.addEventListener('click', () => {
+            wishlistSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    }
+    
     // Compare toggle
     const compareBtn = document.querySelector('.compare-btn');
     const compareSidebar = document.getElementById('compareSidebar');
@@ -427,6 +445,7 @@ function setupEventListeners() {
     overlay.addEventListener('click', () => {
         cartSidebar.classList.remove('active');
         compareSidebar.classList.remove('active');
+        if (wishlistSidebar) wishlistSidebar.classList.remove('active');
         overlay.classList.remove('active');
     });
     
@@ -472,6 +491,46 @@ function setupEventListeners() {
         localStorage.setItem('compareList', JSON.stringify(compareList));
         window.location.href = 'compare.html';
     });
+}
+
+// Update Wishlist Display
+function updateWishlistDisplay() {
+    const wishlistItems = document.getElementById('wishlistItems');
+    const wishlist = JSON.parse(localStorage.getItem('techzone_wishlist')) || [];
+    
+    if (wishlist.length === 0) {
+        wishlistItems.innerHTML = `
+            <div class="empty-wishlist">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <p>لا توجد منتجات في المفضلة</p>
+            </div>
+        `;
+        return;
+    }
+    
+    wishlistItems.innerHTML = wishlist.map(item => `
+        <div class="wishlist-item" style="padding: 1rem; border-bottom: 1px solid rgba(37, 99, 235, 0.1); display: flex; gap: 1rem; align-items: center;">
+            <img src="${item.image}" alt="${item.name}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 10px;">
+            <div style="flex: 1;">
+                <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--light);">${item.name}</h4>
+                <p style="color: var(--primary); font-size: 1.1rem; font-weight: 700;">${item.price} ر.س</p>
+            </div>
+            <button onclick="addToCart(${item.id})" style="background: var(--primary); border: none; color: white; cursor: pointer; padding: 0.6rem 1rem; border-radius: 10px; font-weight: 700; font-size: 0.85rem;">أضف للسلة</button>
+            <button onclick="removeFromWishlist(${item.id})" style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444; cursor: pointer; font-size: 1.2rem; padding: 0.5rem; border-radius: 8px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">×</button>
+        </div>
+    `).join('');
+}
+
+// Remove from Wishlist
+function removeFromWishlist(productId) {
+    let wishlist = JSON.parse(localStorage.getItem('techzone_wishlist')) || [];
+    wishlist = wishlist.filter(item => item.id !== productId);
+    localStorage.setItem('techzone_wishlist', JSON.stringify(wishlist));
+    updateWishlistCount();
+    updateWishlistDisplay();
+    showNotification('تم إزالة المنتج من المفضلة', 'info');
 }
 
 // Countdown Timer
