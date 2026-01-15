@@ -3367,33 +3367,81 @@ section {
 /* Footer Mobile */
 @media (max-width: 768px) {
     .footer {
-        padding: 3rem 0 1.5rem;
+        padding: 2rem 0 1rem;
     }
     
-    .footer-grid {
+    .footer-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+        margin-bottom: 0.8rem;
+    }
+    
+    .footer-logo svg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-logo span {
+        font-size: 1.3rem;
+    }
+    
+    .footer-text {
+        text-align: center;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+    
+    .footer-section {
         text-align: center;
     }
     
     .footer-section h4 {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
     }
     
     .footer-links {
-        gap: 0.5rem;
+        gap: 0.4rem;
+        display: flex;
+        flex-direction: column;
     }
     
-    .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-        padding-top: 1.5rem;
+    .footer-links li {
+        margin-bottom: 0.4rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.85rem;
+        display: inline-block;
     }
     
     .social-links {
         justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .social-link {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .social-link svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+        padding-top: 1rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -3652,5 +3700,248 @@ section {
     .collections-grid-new,
     .offers-grid {
         width: 100%;
+    }
+}
+
+
+/* Footer Compact Mobile Design */
+@media (max-width: 768px) {
+    /* Hide less important footer sections on mobile */
+    .footer-content .footer-col:nth-child(n+3) {
+        display: none;
+    }
+    
+    /* Keep only logo and essential links */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Compact footer section */
+    .footer-col:first-child {
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Make footer links horizontal on mobile */
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .footer-links li {
+        margin-bottom: 0;
+    }
+    
+    .footer-links li::after {
+        content: '•';
+        margin-left: 0.8rem;
+        color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .footer-links li:last-child::after {
+        content: '';
+        margin-left: 0;
+    }
+    
+    /* Compact heading */
+    .footer-heading {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+    }
+    
+    /* Smaller social icons */
+    .social-links {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Extra small screens - even more compact */
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 0 0.8rem;
+    }
+    
+    .footer-logo span {
+        font-size: 1.1rem;
+    }
+    
+    .footer-text {
+        font-size: 0.75rem;
+        padding: 0 0.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .footer-links a {
+        font-size: 0.75rem;
+    }
+    
+    .social-link {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .social-link svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .footer-bottom {
+        font-size: 0.7rem;
+        padding-top: 0.8rem;
+    }
+    
+    .footer-bottom p {
+        line-height: 1.6;
+    }
+}
+
+
+/* Footer Mobile - Final Enhancements */
+@media (max-width: 768px) {
+    /* Simplify footer structure */
+    .footer-col:nth-child(2) {
+        order: 2;
+    }
+    
+    .footer-col:nth-child(4) {
+        order: 3;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Center all footer content */
+    .footer-col {
+        text-align: center;
+    }
+    
+    /* Adjust footer logo */
+    .footer-logo {
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-logo svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    /* Compact text */
+    .footer-text {
+        margin-bottom: 0;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Footer links styling */
+    .footer-links {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-links a {
+        padding: 0.2rem 0;
+    }
+    
+    /* Social links compact */
+    .social-links {
+        gap: 0.6rem;
+        margin-top: 0.8rem;
+    }
+    
+    /* Footer bottom compact */
+    .footer-bottom {
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+    
+    .footer-bottom p {
+        margin: 0;
+        padding: 0 1rem;
+    }
+    
+    .footer-bottom a {
+        display: inline-block;
+        margin-top: 0.3rem;
+    }
+}
+
+/* Very compact footer for small screens */
+@media (max-width: 400px) {
+    .footer {
+        padding: 1rem 0 0.5rem;
+    }
+    
+    .footer-content {
+        gap: 0.8rem;
+    }
+    
+    .footer-col:first-child {
+        padding-bottom: 0.3rem;
+    }
+    
+    .footer-col:nth-child(4) {
+        padding-top: 0.8rem;
+        margin-top: 0.3rem;
+    }
+    
+    .footer-logo {
+        margin-bottom: 0.3rem;
+    }
+    
+    .footer-text {
+        font-size: 0.7rem;
+        -webkit-line-clamp: 1;
+    }
+    
+    .footer-heading {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-links {
+        gap: 0.5rem;
+    }
+    
+    .footer-links li::after {
+        margin-left: 0.5rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.7rem;
+    }
+    
+    .social-links {
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .social-link {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .social-link svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .footer-bottom {
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.65rem;
+        line-height: 1.5;
     }
 }
