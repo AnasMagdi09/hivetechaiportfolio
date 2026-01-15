@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العناية بالبشرة - Glamour</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="category.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="45" fill="url(#logoGradient)"/>
+                        <path d="M35 45 L50 30 L65 45 M50 35 L50 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d4a574"/>
+                                <stop offset="100%" style="stop-color:#e8b4b8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">Glamour</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="index.html#products" class="nav-link">المنتجات</a>
+                    <a href="index.html#brands" class="nav-link">العلامات التجارية</a>
+                    <a href="index.html#offers" class="nav-link">العروض</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn" aria-label="المفضلة">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span class="wishlist-count">0</span>
+                    </button>
+                    <button class="icon-btn cart-btn" aria-label="سلة التسوق">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero skincare-hero">
+        <div class="category-hero-bg">
+            <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b38b17?w=1920&q=80" alt="Skincare">
+            <div class="category-hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="category-hero-content">
+                <a href="index.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    العودة للرئيسية
+                </a>
+                <div class="category-icon-large">
+                    <svg viewBox="0 0 64 64" fill="none">
+                        <rect x="20" y="10" width="24" height="44" rx="4" fill="url(#skincareGrad)"/>
+                        <circle cx="32" cy="20" r="3" fill="white" opacity="0.3"/>
+                        <rect x="24" y="30" width="16" height="2" rx="1" fill="white" opacity="0.2"/>
+                        <rect x="24" y="36" width="16" height="2" rx="1" fill="white" opacity="0.2"/>
+                        <defs>
+                            <linearGradient id="skincareGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d4a574"/>
+                                <stop offset="100%" style="stop-color:#e8b4b8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1 class="category-title">العناية بالبشرة</h1>
+                <p class="category-desc">اكتشفي مجموعة فاخرة من منتجات العناية بالبشرة لإطلالة مشرقة وصحية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label>العلامة التجارية:</label>
+                    <select class="filter-select" id="brandFilter">
+                        <option value="all">الكل</option>
+                        <option value="la mer">La Mer</option>
+                        <option value="dior">Dior</option>
+                        <option value="chanel">Chanel</option>
+                        <option value="estée lauder">Estée Lauder</option>
+                        <option value="lancôme">Lancôme</option>
+                        <option value="l'oréal">L'Oréal</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>السعر:</label>
+                    <select class="filter-select" id="priceFilter">
+                        <option value="all">الكل</option>
+                        <option value="0-300">أقل من 300 ر.س</option>
+                        <option value="300-500">300 - 500 ر.س</option>
+                        <option value="500-800">500 - 800 ر.س</option>
+                        <option value="800+">أكثر من 800 ر.س</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>الترتيب:</label>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="featured">المميزة</option>
+                        <option value="price-low">السعر: من الأقل</option>
+                        <option value="price-high">السعر: من الأعلى</option>
+                        <option value="rating">التقييم</option>
+                        <option value="newest">الأحدث</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="category-products">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 Glamour. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="category.js"></script>
+    <script>
+        initCategory('skincare', skincareProducts);
+    </script>
+</body>
+</html>

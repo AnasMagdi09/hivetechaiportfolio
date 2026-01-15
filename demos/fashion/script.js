@@ -1056,3 +1056,211 @@ document.querySelector('.hero').addEventListener('mouseenter', () => {
 document.querySelector('.hero').addEventListener('mouseleave', () => {
     autoSlideInterval = setInterval(nextSlide, 3000);
 });
+
+
+// ==========================================
+// AI Chatbot Functionality
+// ==========================================
+
+class AIChatbot {
+    constructor() {
+        this.toggle = document.getElementById('chatbotToggle');
+        this.window = document.getElementById('chatbotWindow');
+        this.messages = document.getElementById('chatbotMessages');
+        this.input = document.getElementById('chatbotInput');
+        this.sendBtn = document.getElementById('sendBtn');
+        this.quickReplies = document.querySelectorAll('.quick-reply');
+        
+        // Conversation state
+        this.conversationState = null;
+        this.userData = {};
+        
+        this.responses = {
+            'مقاس': 'بكل سرور! سأساعدك في اختيار المقاس المناسب 📏\n\nمن فضلك أخبرني:\n• كم طولك بالسنتيمتر؟ (مثال: 170)',
+            'دفع': 'نوفر طرق دفع متعددة:\n• الدفع عند الاستلام 💵\n• بطاقات الائتمان 💳\n• المحافظ الإلكترونية 📱\nجميع المعاملات آمنة ومشفرة 🔒',
+            'توصيل': 'مدة التوصيل:\n• داخل المدينة: 2-3 أيام 🚚\n• خارج المدينة: 4-7 أيام 📦\n• الشحن مجاني للطلبات فوق 500 ريال ✨',
+            'إرجاع': 'سياسة الإرجاع:\n• يمكنك إرجاع المنتج خلال 30 يوم 📅\n• المنتج يجب أن يكون بحالته الأصلية\n• استرداد كامل المبلغ أو استبدال 💯',
+            'عملاء': 'يمكنك التواصل مع خدمة العملاء:\n📞 الهاتف: 920000000\n📧 البريد: support@fashionhub.com\n⏰ من السبت للخميس: 9 صباحاً - 9 مساءً',
+            'default': 'شكراً لتواصلك! 😊\nفريق خدمة العملاء سيساعدك قريباً.\nأو يمكنك استخدام الأزرار السريعة أدناه للحصول على إجابات فورية.'
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        this.toggle.addEventListener('click', () => this.toggleWindow());
+        this.sendBtn.addEventListener('click', () => this.sendMessage());
+        this.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.sendMessage();
+        });
+        
+        this.quickReplies.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const message = btn.getAttribute('data-message');
+                this.sendMessage(message);
+            });
+        });
+    }
+    
+    toggleWindow() {
+        this.toggle.classList.toggle('active');
+        this.window.classList.toggle('active');
+    }
+    
+    sendMessage(text = null) {
+        const message = text || this.input.value.trim();
+        if (!message) return;
+        
+        // Add user message
+        this.addMessage(message, 'user');
+        this.input.value = '';
+        
+        // Simulate typing
+        setTimeout(() => {
+            const response = this.getResponse(message);
+            this.addMessage(response, 'bot');
+        }, 1000);
+    }
+    
+    addMessage(text, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${type}-message`;
+        
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.textContent = type === 'bot' ? '🤖' : '👤';
+        
+        const content = document.createElement('div');
+        content.className = 'message-content';
+        
+        // Handle line breaks
+        const lines = text.split('\n');
+        lines.forEach(line => {
+            const p = document.createElement('p');
+            p.textContent = line;
+            content.appendChild(p);
+        });
+        
+        messageDiv.appendChild(avatar);
+        messageDiv.appendChild(content);
+        
+        this.messages.appendChild(messageDiv);
+        this.messages.scrollTop = this.messages.scrollHeight;
+    }
+    
+    getResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        // Handle size finder conversation flow
+        if (this.conversationState === 'waiting_height') {
+            return this.handleHeightInput(message);
+        } else if (this.conversationState === 'waiting_weight') {
+            return this.handleWeightInput(message);
+        }
+        
+        // Initial responses
+        if (lowerMessage.includes('مقاس') || lowerMessage.includes('قياس')) {
+            this.conversationState = 'waiting_height';
+            this.userData = {};
+            return this.responses['مقاس'];
+        } else if (lowerMessage.includes('دفع') || lowerMessage.includes('الدفع')) {
+            return this.responses['دفع'];
+        } else if (lowerMessage.includes('توصيل') || lowerMessage.includes('شحن')) {
+            return this.responses['توصيل'];
+        } else if (lowerMessage.includes('إرجاع') || lowerMessage.includes('استرجاع')) {
+            return this.responses['إرجاع'];
+        } else if (lowerMessage.includes('عملاء') || lowerMessage.includes('تواصل')) {
+            return this.responses['عملاء'];
+        } else {
+            return this.responses['default'];
+        }
+    }
+    
+    handleHeightInput(message) {
+        const height = parseInt(message);
+        
+        if (isNaN(height) || height < 100 || height > 250) {
+            return 'من فضلك أدخل طولك بشكل صحيح (مثال: 170) 📏';
+        }
+        
+        this.userData.height = height;
+        this.conversationState = 'waiting_weight';
+        
+        return `رائع! طولك ${height} سم ✅\n\nالآن، كم وزنك بالكيلوجرام؟ (مثال: 70)`;
+    }
+    
+    handleWeightInput(message) {
+        const weight = parseInt(message);
+        
+        if (isNaN(weight) || weight < 30 || weight > 200) {
+            return 'من فضلك أدخل وزنك بشكل صحيح (مثال: 70) ⚖️';
+        }
+        
+        this.userData.weight = weight;
+        this.conversationState = null;
+        
+        // Calculate recommended size
+        const size = this.calculateSize(this.userData.height, this.userData.weight);
+        
+        return this.getSizeRecommendation(size, this.userData.height, this.userData.weight);
+    }
+    
+    calculateSize(height, weight) {
+        // Calculate BMI
+        const heightInMeters = height / 100;
+        const bmi = weight / (heightInMeters * heightInMeters);
+        
+        // Size logic based on height and BMI
+        if (height < 160) {
+            if (bmi < 18.5) return 'XS';
+            if (bmi < 22) return 'S';
+            if (bmi < 26) return 'M';
+            if (bmi < 30) return 'L';
+            return 'XL';
+        } else if (height < 170) {
+            if (bmi < 18.5) return 'S';
+            if (bmi < 22) return 'M';
+            if (bmi < 26) return 'L';
+            if (bmi < 30) return 'XL';
+            return 'XXL';
+        } else if (height < 180) {
+            if (bmi < 18.5) return 'S';
+            if (bmi < 22) return 'M';
+            if (bmi < 25) return 'L';
+            if (bmi < 29) return 'XL';
+            return 'XXL';
+        } else {
+            if (bmi < 20) return 'M';
+            if (bmi < 24) return 'L';
+            if (bmi < 28) return 'XL';
+            return 'XXL';
+        }
+    }
+    
+    getSizeRecommendation(size, height, weight) {
+        const sizeEmojis = {
+            'XS': '🔹',
+            'S': '🔸',
+            'M': '⭐',
+            'L': '🌟',
+            'XL': '✨',
+            'XXL': '💫'
+        };
+        
+        const emoji = sizeEmojis[size] || '⭐';
+        
+        return `تحليل ذكي مكتمل! 🤖✨\n\n` +
+               `بناءً على مقاساتك:\n` +
+               `📏 الطول: ${height} سم\n` +
+               `⚖️ الوزن: ${weight} كجم\n\n` +
+               `${emoji} المقاس المقترح: ${size}\n\n` +
+               `💡 نصيحة: إذا كنت تفضل الملابس الواسعة، اختر مقاس أكبر.\n` +
+               `إذا كنت تفضل الملابس الضيقة، اختر مقاس أصغر.\n\n` +
+               `هل تحتاج مساعدة في شيء آخر؟ 😊`;
+    }
+}
+
+// Initialize chatbot when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    new AIChatbot();
+});

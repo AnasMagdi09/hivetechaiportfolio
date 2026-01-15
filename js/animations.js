@@ -13,15 +13,15 @@ class AnimationsManager {
   // Scroll Animations using Intersection Observer
   setupScrollAnimations() {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.15,
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          observer.unobserve(entry.target);
+          // Don't unobserve so animation can retrigger if needed
         }
       });
     }, observerOptions);
@@ -29,6 +29,33 @@ class AnimationsManager {
     // Observe all elements with 'reveal' class
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => observer.observe(el));
+    
+    // Observe project cards in grids
+    const observeProjectCards = () => {
+      const projectCards = document.querySelectorAll('#allProjectsGrid .project-card, #ecommerceGrid .project-card, #serviceGrid .project-card');
+      projectCards.forEach(card => {
+        observer.observe(card);
+      });
+    };
+    
+    // Initial observation
+    setTimeout(() => {
+      observeProjectCards();
+    }, 200);
+    
+    // Re-observe when new cards are added (after language change or filter)
+    const gridObserver = new MutationObserver(() => {
+      setTimeout(() => {
+        observeProjectCards();
+      }, 100);
+    });
+    
+    const grids = document.querySelectorAll('#allProjectsGrid, #ecommerceGrid, #serviceGrid');
+    grids.forEach(grid => {
+      if (grid) {
+        gridObserver.observe(grid, { childList: true, subtree: true });
+      }
+    });
   }
 
   // Parallax Effect for Hero Section
@@ -115,6 +142,9 @@ class AnimationsManager {
 
 // Initialize animations manager
 const animationsManager = new AnimationsManager();
+
+// Make it globally accessible
+window.animationsManager = animationsManager;
 
 // Smooth scroll for anchor links
 document.addEventListener('DOMContentLoaded', () => {

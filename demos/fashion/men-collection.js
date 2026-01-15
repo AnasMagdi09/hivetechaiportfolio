@@ -1,160 +1,56 @@
-// Accessories Collection Products
-const accessoriesProducts = [
+// Men Collection Products
+const menProducts = [
     {
-        id: 401,
-        name: 'حقيبة يد فاخرة',
-        desc: 'حقيبة جلد طبيعي بتصميم عصري',
-        price: 799,
-        category: 'accessories',
+        id: 201,
+        name: 'بدلة رسمية فاخرة',
+        desc: 'بدلة كاملة بتصميم كلاسيكي',
+        price: 1499,
+        category: 'men',
         badge: 'الأكثر مبيعاً',
-        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&q=80',
-        colors: ['أسود', 'بني', 'بيج'],
-        colorCodes: ['#000', '#8b4513', '#d4a574'],
-        sizes: ['واحد'],
+        image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80',
+        colors: ['أسود', 'رمادي', 'أزرق داكن'],
+        colorCodes: ['#000', '#6b7280', '#1e40af'],
+        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         rating: 5
     },
     {
-        id: 402,
-        name: 'حذاء رياضي عصري',
-        desc: 'حذاء مريح للاستخدام اليومي',
-        price: 549,
-        category: 'accessories',
-        badge: 'تخفيضات',
-        image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',
-        colors: ['أبيض', 'أسود', 'أحمر'],
-        colorCodes: ['#fff', '#000', '#ef4444'],
-        sizes: ['38', '39', '40', '41', '42', '43'],
-        rating: 4
-    },
-    {
-        id: 403,
-        name: 'محفظة جلدية أنيقة',
-        desc: 'محفظة عملية بتصميم راقي',
+        id: 202,
+        name: 'قميص كاجوال أنيق',
+        desc: 'قميص قطني بتصميم عصري',
         price: 299,
-        category: 'accessories',
+        category: 'men',
         badge: 'جديد',
-        image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&q=80',
-        colors: ['أسود', 'بني', 'أزرق'],
-        colorCodes: ['#000', '#8b4513', '#1e40af'],
-        sizes: ['واحد'],
-        rating: 5
-    },
-    {
-        id: 404,
-        name: 'حزام جلد فاخر',
-        desc: 'حزام جلد طبيعي بإبزيم معدني',
-        price: 249,
-        category: 'accessories',
-        badge: 'الأكثر مبيعاً',
-        image: 'WhatsApp Image 2026-01-15 at 6.53.11 PM.jpeg',
-        colors: ['أسود', 'بني'],
-        colorCodes: ['#000', '#8b4513'],
+        image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80',
+        colors: ['أبيض', 'أزرق', 'رمادي'],
+        colorCodes: ['#fff', '#3b82f6', '#6b7280'],
         sizes: ['S', 'M', 'L', 'XL'],
         rating: 5
     },
     {
-        id: 405,
-        name: 'نظارة شمسية عصرية',
-        desc: 'نظارة بحماية UV كاملة',
-        price: 399,
-        category: 'accessories',
-        badge: 'جديد',
-        image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80',
-        colors: ['أسود', 'بني', 'ذهبي'],
-        colorCodes: ['#000', '#8b4513', '#d4a574'],
-        sizes: ['واحد'],
-        rating: 5
-    },
-    {
-        id: 406,
-        name: 'ساعة يد كلاسيكية',
-        desc: 'ساعة أنيقة بتصميم عصري',
-        price: 899,
-        category: 'accessories',
+        id: 203,
+        name: 'جاكيت جلد رجالي',
+        desc: 'جاكيت جلد طبيعي بتصميم عصري',
+        price: 1399,
+        category: 'men',
         badge: 'تخفيضات',
-        image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&q=80',
-        colors: ['فضي', 'ذهبي', 'أسود'],
-        colorCodes: ['#c0c0c0', '#d4a574', '#000'],
-        sizes: ['واحد'],
-        rating: 5
-    },
-    {
-        id: 407,
-        name: 'شنطة ظهر عملية',
-        desc: 'شنطة واسعة للاستخدام اليومي',
-        price: 449,
-        category: 'accessories',
-        badge: 'الأكثر مبيعاً',
-        image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80',
-        colors: ['أسود', 'رمادي', 'أزرق'],
-        colorCodes: ['#000', '#6b7280', '#3b82f6'],
-        sizes: ['واحد'],
-        rating: 4
-    },
-    {
-        id: 408,
-        name: 'قبعة صيفية أنيقة',
-        desc: 'قبعة واقية من الشمس',
-        price: 149,
-        category: 'accessories',
-        badge: 'جديد',
-        image: 'https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?w=400&q=80',
-        colors: ['بيج', 'أسود', 'أبيض'],
-        colorCodes: ['#d4a574', '#000', '#fff'],
-        sizes: ['S', 'M', 'L'],
-        rating: 4
-    },
-    {
-        id: 409,
-        name: 'وشاح حريري فاخر',
-        desc: 'وشاح ناعم بتصميم راقي',
-        price: 199,
-        category: 'accessories',
-        badge: 'الأكثر مبيعاً',
-        image: 'وشاح.jpeg',
-        colors: ['وردي', 'أزرق', 'بيج'],
-        colorCodes: ['#ff6b9d', '#3b82f6', '#d4a574'],
-        sizes: ['واحد'],
-        rating: 5
-    },
-    {
-        id: 410,
-        name: 'حذاء رسمي أنيق',
-        desc: 'حذاء جلد للمناسبات الرسمية',
-        price: 699,
-        category: 'accessories',
-        badge: 'جديد',
-        image: 'https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=400&q=80',
+        image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80',
         colors: ['أسود', 'بني'],
         colorCodes: ['#000', '#8b4513'],
-        sizes: ['39', '40', '41', '42', '43', '44'],
+        sizes: ['M', 'L', 'XL', 'XXL'],
         rating: 5
     },
     {
-        id: 411,
-        name: 'حقيبة كروس صغيرة',
-        desc: 'حقيبة عملية للاستخدام اليومي',
-        price: 349,
-        category: 'accessories',
-        badge: 'تخفيضات',
-        image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400&q=80',
-        colors: ['أسود', 'بيج', 'أحمر'],
-        colorCodes: ['#000', '#d4a574', '#ef4444'],
-        sizes: ['واحد'],
-        rating: 4
-    },
-    {
-        id: 412,
-        name: 'قفازات جلدية فاخرة',
-        desc: 'قفازات دافئة بتصميم أنيق',
-        price: 179,
-        category: 'accessories',
+        id: 204,
+        name: 'بنطلون جينز كلاسيكي',
+        desc: 'جينز رجالي بقصة مريحة',
+        price: 399,
+        category: 'men',
         badge: 'الأكثر مبيعاً',
-        image: 'قفازات.jpeg',
-        colors: ['أسود', 'بني', 'رمادي'],
-        colorCodes: ['#000', '#8b4513', '#6b7280'],
-        sizes: ['S', 'M', 'L'],
-        rating: 5
+        image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80',
+        colors: ['أزرق', 'أسود', 'رمادي'],
+        colorCodes: ['#3b82f6', '#000', '#6b7280'],
+        sizes: ['30', '32', '34', '36', '38'],
+        rating: 4
     }
 ];
 
@@ -183,12 +79,11 @@ function loadFromStorage() {
     }
 }
 
-
 // Render Products
 function renderProducts() {
     const grid = document.getElementById('productsGrid');
     
-    grid.innerHTML = accessoriesProducts.map(product => `
+    grid.innerHTML = menProducts.map(product => `
         <div class="product-card" data-id="${product.id}">
             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
             <button class="product-wishlist ${wishlist.find(w => w.id === product.id) ? 'active' : ''}" data-id="${product.id}">
@@ -259,7 +154,7 @@ function attachProductListeners() {
 
 // Add to Cart
 function addToCart(productId) {
-    const product = accessoriesProducts.find(p => p.id === productId);
+    const product = menProducts.find(p => p.id === productId);
     const existingItem = cart.find(item => item.id === productId);
     
     if (existingItem) {
@@ -275,7 +170,7 @@ function addToCart(productId) {
 
 // Toggle Wishlist
 function toggleWishlist(productId) {
-    const product = accessoriesProducts.find(p => p.id === productId);
+    const product = menProducts.find(p => p.id === productId);
     const existingIndex = wishlist.findIndex(item => item.id === productId);
     
     if (existingIndex > -1) {
@@ -335,7 +230,6 @@ function updateCart() {
         </div>
     `).join('');
 }
-
 
 // Update Wishlist
 function updateWishlist() {
@@ -413,7 +307,7 @@ function removeFromCart(productId, color, size) {
 
 // Quick View Modal
 function showQuickView(productId) {
-    const product = accessoriesProducts.find(p => p.id === productId);
+    const product = menProducts.find(p => p.id === productId);
     const modal = document.getElementById('quickViewModal');
     const modalBody = document.getElementById('modalBody');
     
@@ -500,10 +394,9 @@ function showQuickView(productId) {
     };
 }
 
-
 // Add to Cart with Options
 function addToCartWithOptions(productId) {
-    const product = accessoriesProducts.find(p => p.id === productId);
+    const product = menProducts.find(p => p.id === productId);
     const options = window.currentProductOptions || {};
     
     const selectedColorBtn = document.querySelector('.color-option.selected');

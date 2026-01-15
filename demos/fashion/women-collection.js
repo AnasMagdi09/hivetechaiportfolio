@@ -278,7 +278,10 @@ function updateWishlist() {
 
 // Cart quantity functions
 function increaseQuantity(productId, color, size) {
-    const item = cart.find(i => i.id === productId && i.selectedColor === color && i.selectedSize === size);
+    const filterColor = (color === 'undefined' || !color) ? undefined : color;
+    const filterSize = (size === 'undefined' || !size) ? undefined : size;
+    
+    const item = cart.find(i => i.id === productId && i.selectedColor === filterColor && i.selectedSize === filterSize);
     if (item) {
         item.quantity++;
         localStorage.setItem('fashionCart', JSON.stringify(cart));
@@ -287,7 +290,10 @@ function increaseQuantity(productId, color, size) {
 }
 
 function decreaseQuantity(productId, color, size) {
-    const item = cart.find(i => i.id === productId && i.selectedColor === color && i.selectedSize === size);
+    const filterColor = (color === 'undefined' || !color) ? undefined : color;
+    const filterSize = (size === 'undefined' || !size) ? undefined : size;
+    
+    const item = cart.find(i => i.id === productId && i.selectedColor === filterColor && i.selectedSize === filterSize);
     if (item && item.quantity > 1) {
         item.quantity--;
         localStorage.setItem('fashionCart', JSON.stringify(cart));
@@ -296,7 +302,17 @@ function decreaseQuantity(productId, color, size) {
 }
 
 function removeFromCart(productId, color, size) {
-    cart = cart.filter(item => !(item.id === productId && item.selectedColor === color && item.selectedSize === size));
+    // Handle undefined values passed as strings
+    const filterColor = (color === 'undefined' || !color) ? undefined : color;
+    const filterSize = (size === 'undefined' || !size) ? undefined : size;
+    
+    cart = cart.filter(item => {
+        if (item.id !== productId) return true;
+        if (item.selectedColor !== filterColor) return true;
+        if (item.selectedSize !== filterSize) return true;
+        return false;
+    });
+    
     localStorage.setItem('fashionCart', JSON.stringify(cart));
     updateCart();
     showNotification('تم إزالة المنتج من السلة', 'info');

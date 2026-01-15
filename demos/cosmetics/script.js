@@ -1,4 +1,17 @@
 // Products Data
+
+// Generate SVG Stars
+function generateStarsSVG(rating) {
+    const fullStar = `<svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+    const emptyStar = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+    
+    let stars = '';
+    for (let i = 0; i < 5; i++) {
+        stars += i < rating ? fullStar : emptyStar;
+    }
+    return stars;
+}
+
 const products = [
     {
         id: 1,
@@ -118,7 +131,7 @@ function renderProducts(filter = 'all') {
                 <div class="product-footer">
                     <span class="product-price">${product.price} ر.س</span>
                     <div class="product-rating">
-                        ${'⭐'.repeat(product.rating)}
+                        ${generateStarsSVG(product.rating)}
                     </div>
                 </div>
             </div>
@@ -333,3 +346,22 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+
+// Prevent category view button from navigating
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryViewBtns = document.querySelectorAll('.category-view-btn');
+    
+    categoryViewBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Get parent link
+            const parentLink = this.closest('a');
+            if (parentLink) {
+                window.location.href = parentLink.href;
+            }
+        });
+    });
+});

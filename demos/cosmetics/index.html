@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,170 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Beauty Tips Section */
+        .beauty-tips {
+            padding: 5rem 0;
+            background: var(--bg);
+        }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .tip-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            transition: all 0.4s ease;
+        }
+        .tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.2);
+            border-color: var(--primary);
+        }
+        .tip-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        .tip-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .tip-card:hover .tip-image img {
+            transform: scale(1.1);
+        }
+        .tip-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Cairo', sans-serif;
+        }
+        .tip-content {
+            padding: 1.5rem;
+        }
+        .tip-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--light);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        .tip-card:hover .tip-title {
+            color: var(--primary);
+        }
+        .tip-excerpt {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            color: #888;
+            line-height: 1.7;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.08), rgba(232, 180, 184, 0.08));
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .testimonial-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.15);
+        }
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+        .testimonial-text {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.15rem;
+            color: var(--light);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .testimonial-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .testimonial-info h4 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            color: var(--light);
+            margin-bottom: 0.2rem;
+        }
+        .testimonial-info span {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+        .testimonial-stars {
+            display: flex;
+            gap: 0.2rem;
+            margin-top: 0.5rem;
+        }
+        .testimonial-stars svg {
+            width: 16px;
+            height: 16px;
+            fill: #fbbf24;
+        }
+
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -30,8 +194,8 @@
                 <nav class="nav">
                     <a href="#home" class="nav-link active">الرئيسية</a>
                     <a href="#products" class="nav-link">المنتجات</a>
-                    <a href="#brands" class="nav-link">العلامات التجارية</a>
-                    <a href="#offers" class="nav-link">العروض</a>
+                    <a href="#tips" class="nav-link">نصائح الجمال</a>
+                    <a href="#testimonials" class="nav-link">آراء العملاء</a>
                 </nav>
                 <div class="header-actions">
                     <button class="icon-btn search-btn" aria-label="بحث">
@@ -90,71 +254,102 @@
                 <p class="section-subtitle">اختاري من مجموعة واسعة من المنتجات</p>
             </div>
             <div class="categories-grid">
-                <div class="category-card" data-category="skincare">
-                    <div class="category-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="20" y="10" width="24" height="44" rx="4" fill="url(#skincare)"/>
-                            <circle cx="32" cy="20" r="3" fill="white" opacity="0.3"/>
-                            <defs>
-                                <linearGradient id="skincare" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#d4a574"/>
-                                    <stop offset="100%" style="stop-color:#e8b4b8"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                <a href="skincare.html" class="category-card-new" data-category="skincare">
+                    <div class="category-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&q=80" alt="العناية بالبشرة" class="category-bg-image">
+                        <div class="category-overlay-gradient"></div>
                     </div>
-                    <h3>العناية بالبشرة</h3>
-                    <p>120+ منتج</p>
-                </div>
-                <div class="category-card" data-category="makeup">
-                    <div class="category-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <path d="M25 15 L39 15 L39 50 L25 50 Z" fill="url(#makeup)"/>
-                            <ellipse cx="32" cy="15" rx="7" ry="3" fill="#d4a574"/>
-                            <defs>
-                                <linearGradient id="makeup" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#e8b4b8"/>
-                                    <stop offset="100%" style="stop-color:#d4a574"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                    <span class="category-badge-tag">الأكثر مبيعا</span>
+                    <div class="category-content-new">
+                        <div class="category-icon-badge">
+                            <svg viewBox="0 0 64 64" fill="none" width="35" height="35">
+                                <rect x="20" y="10" width="24" height="44" rx="4" fill="white"/>
+                                <circle cx="32" cy="20" r="3" fill="rgba(255,255,255,0.5)"/>
+                            </svg>
+                        </div>
+                        <h3 class="category-title-new">العناية بالبشرة</h3>
+                        <p class="category-count">120+ منتج</p>
+                        <button class="category-view-btn">
+                            <span>عرض التفاصيل</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
                     </div>
-                    <h3>المكياج</h3>
-                    <p>200+ منتج</p>
-                </div>
-                <div class="category-card" data-category="haircare">
-                    <div class="category-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <path d="M32 10 Q40 20 40 35 L40 50 L24 50 L24 35 Q24 20 32 10" fill="url(#haircare)"/>
-                            <circle cx="32" cy="12" r="4" fill="#d4a574"/>
-                            <defs>
-                                <linearGradient id="haircare" x1="50%" y1="0%" x2="50%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#d4a574"/>
-                                    <stop offset="100%" style="stop-color:#e8b4b8"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                </a>
+                
+                <a href="makeup.html" class="category-card-new" data-category="makeup">
+                    <div class="category-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=800&q=80" alt="المكياج" class="category-bg-image">
+                        <div class="category-overlay-gradient"></div>
                     </div>
-                    <h3>العناية بالشعر</h3>
-                    <p>85+ منتج</p>
-                </div>
-                <div class="category-card" data-category="fragrance">
-                    <div class="category-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="26" y="15" width="12" height="8" fill="#d4a574"/>
-                            <path d="M22 23 L42 23 L40 50 L24 50 Z" fill="url(#fragrance)"/>
-                            <circle cx="32" cy="35" r="2" fill="white" opacity="0.3"/>
-                            <defs>
-                                <linearGradient id="fragrance" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#e8b4b8" stop-opacity="0.8"/>
-                                    <stop offset="100%" style="stop-color:#d4a574" stop-opacity="0.9"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                    <span class="category-badge-tag">جديد</span>
+                    <div class="category-content-new">
+                        <div class="category-icon-badge">
+                            <svg viewBox="0 0 64 64" fill="none" width="35" height="35">
+                                <path d="M25 15 L39 15 L39 50 L25 50 Z" fill="white"/>
+                                <ellipse cx="32" cy="15" rx="7" ry="3" fill="rgba(255,255,255,0.5)"/>
+                            </svg>
+                        </div>
+                        <h3 class="category-title-new">المكياج</h3>
+                        <p class="category-count">200+ منتج</p>
+                        <button class="category-view-btn">
+                            <span>عرض التفاصيل</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
                     </div>
-                    <h3>العطور</h3>
-                    <p>60+ منتج</p>
-                </div>
+                </a>
+                
+                <a href="haircare.html" class="category-card-new" data-category="haircare">
+                    <div class="category-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="العناية بالشعر" class="category-bg-image">
+                        <div class="category-overlay-gradient"></div>
+                    </div>
+                    <span class="category-badge-tag">عروض خاصة</span>
+                    <div class="category-content-new">
+                        <div class="category-icon-badge">
+                            <svg viewBox="0 0 64 64" fill="none" width="35" height="35">
+                                <path d="M32 10 Q40 20 40 35 L40 50 L24 50 L24 35 Q24 20 32 10" fill="white"/>
+                                <circle cx="32" cy="12" r="4" fill="rgba(255,255,255,0.5)"/>
+                            </svg>
+                        </div>
+                        <h3 class="category-title-new">العناية بالشعر</h3>
+                        <p class="category-count">85+ منتج</p>
+                        <button class="category-view-btn">
+                            <span>عرض التفاصيل</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </a>
+                
+                <a href="fragrance.html" class="category-card-new" data-category="fragrance">
+                    <div class="category-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&q=80" alt="العطور" class="category-bg-image">
+                        <div class="category-overlay-gradient"></div>
+                    </div>
+                    <span class="category-badge-tag">مميز</span>
+                    <div class="category-content-new">
+                        <div class="category-icon-badge">
+                            <svg viewBox="0 0 64 64" fill="none" width="35" height="35">
+                                <rect x="26" y="15" width="12" height="8" fill="rgba(255,255,255,0.5)"/>
+                                <path d="M22 23 L42 23 L40 50 L24 50 Z" fill="white"/>
+                                <circle cx="32" cy="35" r="2" fill="rgba(255,255,255,0.5)"/>
+                            </svg>
+                        </div>
+                        <h3 class="category-title-new">العطور</h3>
+                        <p class="category-count">60+ منتج</p>
+                        <button class="category-view-btn">
+                            <span>عرض التفاصيل</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -177,6 +372,160 @@
         </div>
     </section>
 
+    <!-- Beauty Tips Section -->
+    <section class="beauty-tips" id="tips">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">نصائح الجمال</h2>
+                <p class="section-subtitle">اكتشفي أسرار الجمال من خبرائنا</p>
+            </div>
+            <div class="tips-grid">
+                <!-- Tip 1: كيف تختارين العطر المناسب لك -->
+                <article class="tip-card">
+                    <div class="tip-image">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&q=80" alt="كيف تختارين العطر المناسب لك" loading="lazy">
+                        <span class="tip-category">العطور</span>
+                    </div>
+                    <div class="tip-content">
+                        <h3 class="tip-title">كيف تختارين العطر المناسب لك</h3>
+                        <p class="tip-excerpt">العطر هو توقيعك الشخصي. العطور تنقسم إلى عائلات: الزهرية، الشرقية، الخشبية، والمنعشة. جربي العطر على بشرتك وانتظري ساعة على الأقل لأن العطر يتفاعل مع كيمياء جسمك. اختاري عطوراً خفيفة للنهار وعطوراً أقوى للمساء والمناسبات الخاصة.</p>
+                    </div>
+                </article>
+
+                <!-- Tip 2: ألوان المكياج المناسبة لكل بشرة -->
+                <article class="tip-card">
+                    <div class="tip-image">
+                        <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=800&q=80" alt="ألوان المكياج المناسبة لكل بشرة" loading="lazy">
+                        <span class="tip-category">دروس المكياج</span>
+                    </div>
+                    <div class="tip-content">
+                        <h3 class="tip-title">ألوان المكياج المناسبة لكل بشرة</h3>
+                        <p class="tip-excerpt">للبشرة الفاتحة: الألوان الوردية والخوخية تناسبك. للبشرة المتوسطة: معظم الألوان تناسبك، جربي البرونزي والمرجاني والبني الدافئ. للبشرة الداكنة: الألوان الجريئة مثل البرتقالي والأحمر والذهبي تبرز جمالك بشكل رائع.</p>
+                    </div>
+                </article>
+
+                <!-- Tip 3: أسرار الشعر الصحي واللامع -->
+                <article class="tip-card">
+                    <div class="tip-image">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="أسرار الشعر الصحي واللامع" loading="lazy">
+                        <span class="tip-category">العناية بالشعر</span>
+                    </div>
+                    <div class="tip-content">
+                        <h3 class="tip-title">أسرار الشعر الصحي واللامع</h3>
+                        <p class="tip-excerpt">الشعر الصحي يبدأ من فروة الرأس. تأكدي من تناول غذاء متوازن غني بالحديد والزنك وفيتامين B. استخدمي ماسك مرطب مرة أسبوعياً على الأقل مع زيت الأرغان أو زيت جوز الهند. قبل استخدام أي أداة حرارية، ضعي سيروم حماية لتجنب تلف الشعر.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">آراء عملائنا</h2>
+                <p class="section-subtitle">تجارب حقيقية من عملائنا الكرام</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <span class="testimonial-quote">"</span>
+                    <p class="testimonial-text">شعري أصبح أكثر لمعاناً ونعومة بعد استخدام الزيت بانتظام. النتائج كانت مذهلة من الأسبوع الأول!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">س</div>
+                        <div class="testimonial-info">
+                            <h4>سارة محمد</h4>
+                            <span>منتجات العناية بالشعر</span>
+                            <div class="testimonial-stars">
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <span class="testimonial-quote">"</span>
+                    <p class="testimonial-text">بشرتي الجافة تحولت إلى بشرة ناعمة ومرطبة بشكل مذهل. أنصح الجميع بتجربة منتجات العناية بالبشرة!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ن</div>
+                        <div class="testimonial-info">
+                            <h4>نورة أحمد</h4>
+                            <span>منتجات العناية بالبشرة</span>
+                            <div class="testimonial-stars">
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Before & After Section -->
+    <section class="before-after-section" id="results">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">نتائج حقيقية</h2>
+                <p class="section-subtitle">شاهدي التحولات المذهلة لعملائنا - اسحبي المؤشر لرؤية الفرق</p>
+            </div>
+            <div class="before-after-grid">
+                <div class="before-after-interactive">
+                    <div class="comparison-container" data-id="1">
+                        <img src="before02.jpg" alt="قبل" class="comparison-image before">
+                        <img src="after02.jpg" alt="بعد" class="comparison-image after">
+                        <div class="comparison-slider"></div>
+                        <div class="comparison-labels">
+                            <span class="comparison-label before-label">قبل</span>
+                            <span class="comparison-label after-label">بعد</span>
+                        </div>
+                    </div>
+                    <div class="before-after-content">
+                        <h3>سيروم فيتامين C</h3>
+                        <p>بعد استخدام السيروم لمدة شهر لاحظت فرقا كبيرا في إشراقة بشرتي وتوحيد لونها.</p>
+                        <div class="gallery-user">
+                            <div class="user-avatar">س</div>
+                            <div class="user-info">
+                                <div class="user-name">سارة أحمد</div>
+                                <div class="user-duration">بعد 4 أسابيع</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="before-after-interactive">
+                    <div class="comparison-container" data-id="2">
+                        <img src="hair before.jpg" alt="قبل" class="comparison-image before">
+                        <img src="hair after.jpg" alt="بعد" class="comparison-image after">
+                        <div class="comparison-slider"></div>
+                        <div class="comparison-labels">
+                            <span class="comparison-label before-label">قبل</span>
+                            <span class="comparison-label after-label">بعد</span>
+                        </div>
+                    </div>
+                    <div class="before-after-content">
+                        <h3>زيت الأرغان للشعر</h3>
+                        <p>شعري أصبح أكثر لمعانا ونعومة بعد استخدام الزيت بانتظام.</p>
+                        <div class="gallery-user">
+                            <div class="user-avatar">ن</div>
+                            <div class="user-info">
+                                <div class="user-name">نورة محمد</div>
+                                <div class="user-duration">بعد 6 أسابيع</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Brands -->
     <section class="brands" id="brands">
         <div class="container">
@@ -194,36 +543,6 @@
         </div>
     </section>
 
-    <!-- Special Offer -->
-    <section class="special-offer" id="offers">
-        <div class="container">
-            <div class="offer-content">
-                <span class="offer-badge">عرض خاص</span>
-                <h2 class="offer-title">خصم يصل إلى 40%</h2>
-                <p class="offer-text">على مجموعة مختارة من منتجات العناية بالبشرة</p>
-                <button class="btn btn-light">تسوقي العروض</button>
-                <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="days">00</span>
-                        <span class="countdown-label">يوم</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="hours">00</span>
-                        <span class="countdown-label">ساعة</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="minutes">00</span>
-                        <span class="countdown-label">دقيقة</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="seconds">00</span>
-                        <span class="countdown-label">ثانية</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Newsletter -->
     <section class="newsletter">
         <div class="container">
@@ -237,6 +556,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -263,17 +583,17 @@
                     <ul class="footer-links">
                         <li><a href="#home">الرئيسية</a></li>
                         <li><a href="#products">المنتجات</a></li>
-                        <li><a href="#brands">العلامات التجارية</a></li>
-                        <li><a href="#offers">العروض</a></li>
+                        <li><a href="#tips">نصائح الجمال</a></li>
+                        <li><a href="#testimonials">آراء العملاء</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 class="footer-heading">خدمة العملاء</h4>
+                    <h4 class="footer-heading">الفئات</h4>
                     <ul class="footer-links">
-                        <li><a href="#">اتصلي بنا</a></li>
-                        <li><a href="#">الشحن والتوصيل</a></li>
-                        <li><a href="#">الإرجاع والاستبدال</a></li>
-                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="skincare.html">العناية بالبشرة</a></li>
+                        <li><a href="makeup.html">المكياج</a></li>
+                        <li><a href="haircare.html">العناية بالشعر</a></li>
+                        <li><a href="fragrance.html">العطور</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -331,5 +651,7 @@
     <div class="overlay" id="overlay"></div>
 
     <script src="script.js"></script>
+    <script src="comparison-init.js"></script>
 </body>
 </html>
+

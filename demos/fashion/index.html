@@ -41,9 +41,10 @@
                 </div>
                 <nav class="nav">
                     <a href="#home" class="nav-link active">الرئيسية</a>
-                    <a href="#products" class="nav-link">المنتجات</a>
                     <a href="#collections" class="nav-link">المجموعات</a>
-                    <a href="#trends" class="nav-link">الترندات</a>
+                    <a href="#products" class="nav-link">المنتجات</a>
+                    <a href="#special-offers" class="nav-link">العروض</a>
+                    <a href="#testimonials" class="nav-link">آراء العملاء</a>
                 </nav>
                 <div class="header-actions">
                     <button class="icon-btn wishlist-btn" aria-label="المفضلة">
@@ -110,66 +111,15 @@
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span class="title-line-main">مجموعة 2026 الحصرية</span>
-                    <span class="title-line-sub">أناقة لا حدود لها، تميز لا ينتهي</span>
                 </h1>
-                <p class="hero-subtitle">اكتشف عالماً من الموضة الراقية حيث يلتقي الإبداع بالأصالة لتصنع إطلالتك المثالية</p>
+                <p class="hero-subtitle">اكتشف عالماً من الموضة الراقية</p>
                 <div class="hero-actions">
                     <button class="btn btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
                         <span>تسوق الآن</span>
                     </button>
                     <a href="../../index.html#projects" class="btn btn-secondary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M19 12H5M12 19l-7-7 7-7"/>
-                        </svg>
                         <span>الرجوع للرئيسية</span>
                     </a>
-                </div>
-                
-                <!-- Features instead of stats -->
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-title">ضمان الجودة</div>
-                            <div class="feature-desc">منتجات أصلية معتمدة</div>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="1" y="3" width="15" height="13"></rect>
-                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                            </svg>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-title">شحن مجاني</div>
-                            <div class="feature-desc">توصيل سريع لكل المدن</div>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 11 12 14 22 4"></polyline>
-                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                            </svg>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-title">إرجاع مرن</div>
-                            <div class="feature-desc">استرجاع خلال 30 يوم</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -347,7 +297,7 @@
     </section>
 
     <!-- Special Offers -->
-    <section class="special-offers">
+    <section class="special-offers" id="special-offers">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">عروض مميزة لفترة محدودة</h2>
@@ -355,6 +305,108 @@
             </div>
             <div class="offers-grid" id="offersGrid">
                 <!-- Offers will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">آراء عملائنا</h2>
+                <p class="section-subtitle">ماذا يقول عملاؤنا عن تجربتهم معنا</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="سارة أحمد">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">سارة أحمد</h4>
+                            <div class="testimonial-rating">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"تجربة تسوق رائعة! المنتجات بجودة عالية والتوصيل سريع جداً. أنصح الجميع بالتسوق من هنا."</p>
+                    <div class="testimonial-date">منذ أسبوعين</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="محمد علي">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">محمد علي</h4>
+                            <div class="testimonial-rating">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"أفضل متجر أزياء تعاملت معه! الأسعار ممتازة والخدمة احترافية. شكراً لكم."</p>
+                    <div class="testimonial-date">منذ 3 أيام</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://i.pravatar.cc/150?img=9" alt="نور محمود">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">نور محمود</h4>
+                            <div class="testimonial-rating">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"منتجات عالية الجودة وأسعار مناسبة. التعامل راقي والشحن سريع. سأكرر التجربة بالتأكيد."</p>
+                    <div class="testimonial-date">منذ يومين</div>
+                </div>
             </div>
         </div>
     </section>
@@ -499,6 +551,77 @@
     </div>
 
     <div class="overlay" id="overlay"></div>
+
+    <!-- AI Chatbot -->
+    <div class="ai-chatbot">
+        <button class="chatbot-toggle" id="chatbotToggle" aria-label="فتح المساعد الذكي">
+            <svg class="chatbot-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <circle cx="9" cy="10" r="1" fill="currentColor"/>
+                <circle cx="15" cy="10" r="1" fill="currentColor"/>
+                <path d="M9 14s1 1 3 1 3-1 3-1"/>
+            </svg>
+            <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+            <span class="chatbot-pulse"></span>
+        </button>
+
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <circle cx="12" cy="8" r="3"/>
+                        <path d="M12 14c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z"/>
+                        <circle cx="12" cy="12" r="10" opacity="0.2" fill="white"/>
+                    </svg>
+                </div>
+                <div class="chatbot-info">
+                    <h4>مساعدك الذكي</h4>
+                    <span class="chatbot-status">
+                        <span class="status-dot"></span>
+                        متصل الآن
+                    </span>
+                </div>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <p>مرحباً! أنا مساعدك الذكي 👋</p>
+                        <p>كيف يمكنني مساعدتك اليوم؟</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot-quick-replies">
+                <button class="quick-reply" data-message="أريد مساعدة في اختيار المقاس">
+                    📏 اختيار المقاس
+                </button>
+                <button class="quick-reply" data-message="ما هي طرق الدفع المتاحة؟">
+                    💳 طرق الدفع
+                </button>
+                <button class="quick-reply" data-message="كم مدة التوصيل؟">
+                    🚚 التوصيل
+                </button>
+                <button class="quick-reply" data-message="أريد التحدث مع خدمة العملاء">
+                    👤 خدمة العملاء
+                </button>
+            </div>
+
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="اكتب رسالتك هنا..." />
+                <button class="send-btn" id="sendBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

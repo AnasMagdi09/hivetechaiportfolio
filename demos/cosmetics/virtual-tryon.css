@@ -1,0 +1,465 @@
+/* Virtual Try-On Styles */
+
+/* Modal Overlay */
+.tryon-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.tryon-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Container */
+.tryon-modal {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    border-radius: 24px;
+    width: 95%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.tryon-modal-overlay.active .tryon-modal {
+    transform: scale(1);
+}
+
+/* Modal Header */
+.tryon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(212, 165, 116, 0.1);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+.tryon-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.tryon-header h2 svg {
+    color: var(--primary);
+}
+
+.tryon-close {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tryon-close:hover {
+    background: rgba(239, 68, 68, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Modal Body */
+.tryon-body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 0;
+    height: calc(90vh - 80px);
+    max-height: 600px;
+}
+
+/* Camera Section */
+.tryon-camera-section {
+    position: relative;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.tryon-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+.tryon-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Camera Placeholder */
+.camera-placeholder {
+    text-align: center;
+    color: #888;
+    padding: 2rem;
+}
+
+.camera-placeholder svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.camera-placeholder p {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.camera-placeholder .btn {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.camera-placeholder .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+}
+
+/* Error Message */
+.camera-error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    color: #ef4444;
+}
+
+.camera-error svg {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.camera-error p {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+}
+
+/* Controls Section */
+.tryon-controls {
+    background: rgba(26, 26, 26, 0.95);
+    padding: 1.5rem;
+    overflow-y: auto;
+    border-right: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+.control-section {
+    margin-bottom: 2rem;
+}
+
+.control-section h3 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Product Type Selector */
+.product-types {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.product-type-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    color: #888;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product-type-btn:hover,
+.product-type-btn.active {
+    background: rgba(212, 165, 116, 0.2);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Shade Selector */
+.shade-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+}
+
+.shade-btn {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.shade-btn:hover {
+    transform: scale(1.1);
+}
+
+.shade-btn.active {
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.shade-btn::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.shade-btn.active::after {
+    opacity: 1;
+}
+
+/* Intensity Slider */
+.intensity-slider {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.intensity-slider input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.intensity-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(212, 165, 116, 0.4);
+}
+
+.intensity-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* Action Buttons */
+.tryon-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+.tryon-btn {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 12px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.tryon-btn.capture {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border: none;
+    color: white;
+}
+
+.tryon-btn.capture:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+}
+
+.tryon-btn.reset {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #888;
+}
+
+.tryon-btn.reset:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tryon-modal {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .tryon-body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        height: calc(100vh - 70px);
+        max-height: none;
+    }
+
+    .tryon-controls {
+        border-right: none;
+        border-top: 1px solid rgba(212, 165, 116, 0.1);
+        max-height: 250px;
+    }
+
+    .tryon-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .tryon-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .shade-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+
+/* Standalone Page Styles */
+.tryon-hero {
+    margin-top: 80px;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(232, 180, 184, 0.1));
+    text-align: center;
+}
+
+.tryon-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.tryon-hero p {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.1rem;
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-family: 'Cairo', sans-serif;
+    transition: gap 0.3s ease;
+}
+
+.back-link:hover {
+    gap: 0.8rem;
+}
+
+.tryon-section {
+    padding: 3rem 0;
+    background: var(--bg);
+}
+
+.tryon-container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+.tryon-section .tryon-camera-section {
+    min-height: 500px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tryon-section .tryon-controls {
+    padding: 2rem;
+    background: rgba(26, 26, 26, 0.5);
+}
+
+@media (max-width: 900px) {
+    .tryon-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .tryon-section .tryon-camera-section {
+        min-height: 350px;
+    }
+    
+    .tryon-hero h1 {
+        font-size: 2rem;
+    }
+}

@@ -234,8 +234,13 @@ class AIBrain {
 
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Only initialize on about page
-    if (window.location.pathname.includes('about') || document.title.includes('من نحن') || document.title.includes('About')) {
+    // Initialize on about page and index page
+    if (window.location.pathname.includes('about') || 
+        window.location.pathname.includes('index') || 
+        window.location.pathname === '/' ||
+        document.title.includes('من نحن') || 
+        document.title.includes('About') ||
+        document.title.includes('Portfolio')) {
         new AIBrain();
     }
 });

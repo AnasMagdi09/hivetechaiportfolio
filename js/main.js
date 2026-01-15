@@ -150,6 +150,13 @@ class PortfolioApp {
       const card = this.createProjectCard(project, lang);
       grid.appendChild(card);
     });
+    
+    // Trigger animation setup after cards are added
+    setTimeout(() => {
+      if (window.animationsManager) {
+        window.animationsManager.setupScrollAnimations();
+      }
+    }, 100);
   }
 
   loadEcommerceProjects() {

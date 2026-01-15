@@ -16,11 +16,20 @@
 }
 
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Cairo', sans-serif !important;
     background: var(--bg);
     color: var(--dark);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Force Cairo font everywhere */
+* {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, .section-title, .tip-title, .before-after-content h3 {
+    font-family: 'Cairo', sans-serif !important;
 }
 
 .container {
@@ -245,7 +254,7 @@ body {
     color: white;
 }
 
-/* Categories */
+/* Categories - Fashion Design Applied */
 .categories {
     padding: 5rem 0;
 }
@@ -256,7 +265,7 @@ body {
 }
 
 .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cairo', sans-serif !important;
     font-size: 2.5rem;
     color: var(--dark);
     margin-bottom: 0.5rem;
@@ -269,48 +278,198 @@ body {
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
-.category-card {
-    background: white;
-    padding: 3rem 2rem;
-    border-radius: 20px;
-    text-align: center;
+.category-card-new {
+    position: relative;
+    height: 400px;
+    border-radius: 25px;
+    overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    display: block;
+    box-shadow: 0 10px 40px rgba(212, 165, 116, 0.15);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.category-card:hover {
+.category-card-new:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(212, 165, 116, 0.3);
+}
+
+.category-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.category-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.category-card-new:hover .category-bg-image {
+    transform: scale(1.15);
+}
+
+.category-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+    transition: all 0.4s ease;
+}
+
+.category-card-new:hover .category-overlay-gradient {
+    background: linear-gradient(180deg, rgba(212, 165, 116, 0.5) 0%, rgba(212, 165, 116, 0.9) 100%);
+}
+
+.category-content-new {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 2;
+    transform: translateY(0);
+    transition: all 0.4s ease;
+}
+
+.category-card-new:hover .category-content-new {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.category-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1rem;
+.category-icon-badge {
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
 }
 
-.category-icon svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 4px 10px rgba(212, 165, 116, 0.3));
+.category-card-new:hover .category-icon-badge {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: rotate(10deg) scale(1.1);
 }
 
-.category-card h3 {
-    font-size: 1.3rem;
-    color: var(--dark);
+.category-icon-badge svg {
+    color: white;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.category-title-new {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: white;
     margin-bottom: 0.5rem;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.category-card p {
-    color: var(--gray);
+.category-count {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.category-arrow-new {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.category-card-new:hover .category-arrow-new {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.category-arrow-new svg {
+    color: var(--primary);
+}
+
+/* Hide old button styles */
+.category-view-btn {
+    display: none;
+}
+
+/* Category Badge Tag */
+.category-badge-tag {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .category-card-new {
+        height: 380px;
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .category-card-new {
+        height: 350px;
+    }
+    
+    .category-content-new {
+        padding: 1.5rem;
+    }
+    
+    .category-icon-badge {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 1rem;
+    }
+    
+    .category-icon-badge svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .category-title-new {
+        font-size: 1.5rem;
+    }
+    
+    .category-count {
+        font-size: 0.9rem;
+    }
+    
+    .category-arrow-new {
+        width: 45px;
+        height: 45px;
+    }
 }
 
 /* Products */
@@ -470,8 +629,13 @@ body {
 
 .product-rating {
     display: flex;
-    gap: 0.2rem;
-    color: #ffc107;
+    gap: 0.15rem;
+    align-items: center;
+}
+
+.product-rating .star-icon {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Brands */
@@ -947,25 +1111,6 @@ body {
         gap: 1rem;
     }
 
-    .category-card {
-        padding: 1.5rem 1rem;
-        border-radius: 15px;
-    }
-
-    .category-icon {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 0.8rem;
-    }
-
-    .category-card h3 {
-        font-size: 1rem;
-    }
-
-    .category-card p {
-        font-size: 0.8rem;
-    }
-
     /* Products Section */
     .products {
         padding: 3rem 0;
@@ -1188,5 +1333,509 @@ body {
 
     .cart-header h3 {
         font-size: 1.1rem;
+    }
+}
+
+
+/* ===== Beauty Tips Section - Professional Design ===== */
+.beauty-tips {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #fdf8f5 0%, #fff5ee 100%) !important;
+    position: relative;
+}
+
+.beauty-tips::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #d4a574, #e8b4b8, #d4a574);
+}
+
+.beauty-tips .section-title {
+    color: #2c2c2c !important;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.beauty-tips .section-subtitle {
+    color: #666666 !important;
+    font-size: 1.2rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.tip-card {
+    background: #ffffff !important;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(212, 165, 116, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+.tip-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 60px rgba(212, 165, 116, 0.25);
+}
+
+.tip-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.tip-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.tip-card:hover .tip-image img {
+    transform: scale(1.08);
+}
+
+.tip-category {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #d4a574, #e8b4b8);
+    color: #ffffff;
+    padding: 0.6rem 1.4rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+}
+
+.tip-content {
+    padding: 2rem;
+}
+
+.tip-title {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1.5rem;
+    color: #2c2c2c !important;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-weight: 700;
+}
+
+.tip-excerpt {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1.05rem;
+    color: #555555 !important;
+    line-height: 1.9;
+}
+
+/* ===== Testimonials Section - Professional Design ===== */
+.testimonials {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%) !important;
+    position: relative;
+}
+
+.testimonials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #d4a574, #e8b4b8, #d4a574);
+}
+
+.testimonials .section-title {
+    color: #ffffff !important;
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.testimonials .section-subtitle {
+    color: #cccccc !important;
+    font-size: 1.2rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: linear-gradient(145deg, #ffffff 0%, #fdf8f5 100%) !important;
+    border-radius: 28px;
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 70px rgba(212, 165, 116, 0.3);
+    border-color: #d4a574;
+}
+
+.testimonial-quote {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 6rem;
+    background: linear-gradient(135deg, #d4a574, #e8b4b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.4;
+    line-height: 1;
+}
+
+.testimonial-text {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1.15rem;
+    color: #333333 !important;
+    line-height: 2;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.testimonial-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4a574, #e8b4b8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+}
+
+.testimonial-info h4 {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1.2rem;
+    color: #2c2c2c !important;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+.testimonial-info span {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 0.95rem;
+    color: #d4a574 !important;
+    font-weight: 600;
+}
+
+.testimonial-stars {
+    display: flex;
+    gap: 0.35rem;
+    margin-top: 0.6rem;
+}
+
+.testimonial-stars svg {
+    width: 20px;
+    height: 20px;
+    fill: #fbbf24;
+    filter: drop-shadow(0 2px 4px rgba(251, 191, 36, 0.3));
+}
+
+/* ===== Before & After Section - Professional Design ===== */
+.before-after-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #fff5ee 0%, #fdf8f5 100%) !important;
+    position: relative;
+}
+
+.before-after-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #d4a574, #e8b4b8, #d4a574);
+}
+
+.before-after-section .section-title {
+    color: #2c2c2c !important;
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.before-after-section .section-subtitle {
+    color: #666666 !important;
+    font-size: 1.2rem;
+}
+
+.before-after-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+/* Interactive Before/After Cards */
+.before-after-interactive {
+    background: #ffffff !important;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(212, 165, 116, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+.before-after-interactive:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 70px rgba(212, 165, 116, 0.25);
+}
+
+/* Comparison Container */
+.comparison-container {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    cursor: ew-resize;
+}
+
+.comparison-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+}
+
+.comparison-image.before {
+    z-index: 1;
+}
+
+.comparison-image.after {
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+}
+
+/* Comparison Slider */
+.comparison-slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(180deg, #d4a574, #e8b4b8);
+    z-index: 3;
+    cursor: ew-resize;
+    transform: translateX(-50%);
+    transition: width 0.2s ease;
+}
+
+.comparison-slider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #d4a574, #e8b4b8);
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(212, 165, 116, 0.5);
+    transition: all 0.3s ease;
+}
+
+.comparison-container:hover .comparison-slider::before {
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 12px 35px rgba(212, 165, 116, 0.6);
+}
+
+.comparison-slider::after {
+    content: '⟷';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Labels */
+.comparison-labels {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.comparison-label {
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-label.before-label {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(220, 38, 38, 0.9));
+}
+
+.comparison-label.after-label {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.9));
+}
+
+.before-after-content {
+    padding: 2rem 2.5rem;
+}
+
+.before-after-content h3 {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1.4rem;
+    color: #2c2c2c !important;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.before-after-content p {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1.05rem;
+    color: #555555 !important;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+}
+
+/* User Info */
+.gallery-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4a574, #e8b4b8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 0.2rem;
+}
+
+.user-duration {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 0.85rem;
+    color: #d4a574;
+    font-weight: 600;
+}
+
+/* ===== Responsive Design for New Sections ===== */
+@media (max-width: 768px) {
+    .beauty-tips,
+    .testimonials,
+    .before-after-section {
+        padding: 4rem 0;
+    }
+    
+    .beauty-tips .section-title,
+    .testimonials .section-title,
+    .before-after-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .before-after-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .testimonial-card {
+        padding: 1.8rem;
+    }
+    
+    .tip-title,
+    .before-after-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .testimonial-text {
+        font-size: 1rem;
+    }
+    
+    .comparison-container {
+        height: 250px;
+    }
+    
+    .comparison-slider::before {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .comparison-slider::after {
+        font-size: 1rem;
+    }
+    
+    .comparison-label {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
     }
 }
