@@ -1825,18 +1825,24 @@ body {
 
     /* Footer - Compact */
     .footer {
-        padding: 1.5rem 0 1rem;
+        padding: 1.5rem 0 0.8rem;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 1.2rem;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Hide extra footer columns on mobile */
+    .footer-col:nth-child(n+3) {
+        display: none;
     }
 
     .footer-col:first-child {
         grid-column: span 1;
         text-align: center;
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
         border-bottom: 1px solid rgba(37, 99, 235, 0.1);
     }
 
@@ -1846,7 +1852,7 @@ body {
 
     .footer-logo {
         justify-content: center;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.5rem;
     }
 
     .footer-logo svg {
@@ -1855,52 +1861,78 @@ body {
     }
 
     .footer-logo span {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .footer-text {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        max-width: 300px;
+        margin: 0 auto;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .footer-heading {
-        font-size: 0.95rem;
-        margin-bottom: 0.8rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
     }
 
     .footer-links {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.8rem;
+        gap: 0.6rem;
+        padding: 0;
     }
 
     .footer-links li {
         margin-bottom: 0;
     }
+    
+    .footer-links li::after {
+        content: '•';
+        margin-left: 0.6rem;
+        color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .footer-links li:last-child::after {
+        content: '';
+        margin-left: 0;
+    }
 
     .footer-links a {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        padding: 0.2rem 0;
     }
 
     .social-links {
         justify-content: center;
-        gap: 0.8rem;
+        gap: 0.6rem;
+        margin-top: 0.8rem;
     }
 
     .social-link {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
     }
 
     .social-link svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
     }
 
     .footer-bottom {
-        padding-top: 1rem;
+        padding-top: 0.8rem;
+        margin-top: 0.8rem;
         font-size: 0.7rem;
         line-height: 1.5;
+    }
+    
+    .footer-bottom p {
+        padding: 0 1rem;
     }
 
     /* Sidebars */
@@ -2242,5 +2274,124 @@ body {
     .ticker-badge svg {
         width: 10px;
         height: 10px;
+    }
+}
+
+
+/* Extra Small Screens - Electronics Footer */
+@media (max-width: 480px) {
+    .footer {
+        padding: 1rem 0 0.5rem;
+    }
+    
+    .footer-content {
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .footer-col:first-child {
+        padding-bottom: 0.3rem;
+    }
+    
+    .footer-logo {
+        margin-bottom: 0.3rem;
+    }
+    
+    .footer-logo svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .footer-logo span {
+        font-size: 1rem;
+    }
+    
+    .footer-text {
+        font-size: 0.7rem;
+        -webkit-line-clamp: 1;
+        padding: 0 0.5rem;
+    }
+    
+    .footer-heading {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-links {
+        gap: 0.5rem;
+    }
+    
+    .footer-links li::after {
+        margin-left: 0.5rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.7rem;
+    }
+    
+    .social-links {
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .social-link {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .social-link svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .footer-bottom {
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 0.65rem;
+    }
+    
+    .footer-bottom p {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Very Small Screens - Ultra Compact */
+@media (max-width: 360px) {
+    .footer {
+        padding: 0.8rem 0 0.4rem;
+    }
+    
+    .footer-content {
+        gap: 0.5rem;
+    }
+    
+    .footer-logo svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .footer-logo span {
+        font-size: 0.9rem;
+    }
+    
+    .footer-text {
+        font-size: 0.65rem;
+    }
+    
+    .footer-heading {
+        font-size: 0.8rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.65rem;
+    }
+    
+    .social-link {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .footer-bottom {
+        font-size: 0.6rem;
     }
 }
